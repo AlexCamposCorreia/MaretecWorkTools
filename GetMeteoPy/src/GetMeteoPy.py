@@ -67,6 +67,7 @@ def write_ConvertToHDF5Action_glue(yaml, start, end, files_to_glue):
         f.write('<<end_list>>\n')
         f.write('\n')
         f.write('<end_file>\n')
+    copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-GLUES_HDF5_FILES.dat')
 
 def write_ConvertToHDF5Action_interpolate(yaml, start, end):
     with open('./ConvertToHDF5Action.dat', 'w') as f:
@@ -93,6 +94,7 @@ def write_ConvertToHDF5Action_interpolate(yaml, start, end):
         f.write('<<EndFields>>\n')
         f.write('\n')
         f.write('<end_file>\n')
+    copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-INTERPOLATE_GRIDS.dat')
 
 def delete_copied_and_created_files(yaml, hdf5_files_copied):
     os.remove(yaml['getMeteoPy']['meteoName']+'.hdf5')

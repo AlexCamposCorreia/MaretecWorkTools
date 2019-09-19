@@ -1,0 +1,17 @@
+<begin_file>
+
+ACTION                        : GLUES HDF5 FILES
+OUTPUTFILENAME                : D3.hdf5
+
+START                         : 2019 09 19 00 00 00
+END                           : 2019 09 20 00 00 00
+
+<<begin_list>>
+D3_2019091819_2019091900.hdf5
+D3_2019091901_2019091906.hdf5
+D3_2019091907_2019091912.hdf5
+D3_2019091913_2019091918.hdf5
+D3_2019091919_2019092000.hdf5
+<<end_list>>
+
+<end_file>
