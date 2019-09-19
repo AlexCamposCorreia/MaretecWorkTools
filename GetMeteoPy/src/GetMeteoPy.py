@@ -85,7 +85,6 @@ def write_ConvertToHDF5Action_interpolate(yaml, start, end):
         f.write('<<begin_father>>\n')
         f.write('{0:30}{1}'.format('FATHER_FILENAME', ': ' + yaml['getMeteoPy']['meteoName']+'.hdf5' + '\n'))
         f.write('{0:30}{1}'.format('FATHER_GRID_FILENAME', ': ' + yaml['getMeteoPy']['meteoName']+'.dat' + '\n'))
-        #f.write('{0:30}{1}'.format('LEVEL', ': ' + '1' + '\n'))
         f.write('<<end_father>>\n')
         f.write('\n')
         f.write('<<BeginFields>>\n')
@@ -96,6 +95,10 @@ def write_ConvertToHDF5Action_interpolate(yaml, start, end):
         f.write('<end_file>\n')
     copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-INTERPOLATE_GRIDS.dat')
 
+def move_interpolated_hdf5_to_History_folder(yaml, start, end):
+    move(yaml['getMeteoPy']['meteoModel']+'_'+yaml['getMeteoPy']['domainName']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5',
+        './History/'+yaml['getMeteoPy']['meteoModel']+'_'+yaml['getMeteoPy']['domainName']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
+
 def delete_copied_and_created_files(yaml, hdf5_files_copied):
     os.remove(yaml['getMeteoPy']['meteoName']+'.hdf5')
     os.remove(yaml['getMeteoPy']['meteoName']+'.dat')
@@ -103,23 +106,25 @@ def delete_copied_and_created_files(yaml, hdf5_files_copied):
     for f in hdf5_files_copied:
         os.remove(f)
 
-def move_interpolated_hdf5_to_History_folder(yaml, start, end):
-    move(yaml['getMeteoPy']['meteoModel']+'_'+yaml['getMeteoPy']['domainName']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5',
-        './History/'+yaml['getMeteoPy']['meteoModel']+'_'+yaml['getMeteoPy']['domainName']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
 
 
 
-
-if __name__ == '__main__':
-    
+def main():
     yaml = open_yaml_file('GetMeteoPy.yaml')
     start, end = get_start_and_end('./GetMeteoPy.dat')
     hdf5_files_copied = copy_meteo_files(yaml, start, end)
     write_ConvertToHDF5Action_glue(yaml, start, end, hdf5_files_copied)
-    p = subprocess.Popen('ConvertToHDF5.exe')
-    p.wait()
+    with open('glue_log.txt', 'w') as logfile:
+        p = subprocess.Popen('ConvertToHDF5.exe', stdout=logfile, stderr=logfile)
+        p.wait()
     write_ConvertToHDF5Action_interpolate(yaml, start, end)
-    p = subprocess.Popen('ConvertToHDF5.exe')
-    p.wait()
+    with open('interpolation_log.txt', 'w') as logfile:
+        p = subprocess.Popen('ConvertToHDF5.exe', stdout=logfile, stderr=logfile)
+        p.wait()
     move_interpolated_hdf5_to_History_folder(yaml, start, end)
     delete_copied_and_created_files(yaml, hdf5_files_copied)
+
+
+
+if __name__ == '__main__':
+    main()
