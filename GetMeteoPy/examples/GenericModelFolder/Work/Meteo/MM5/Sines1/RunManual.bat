@@ -1,0 +1,2 @@
+"..\..\..\..\..\..\src\GetMeteoPy.py"
+pause
