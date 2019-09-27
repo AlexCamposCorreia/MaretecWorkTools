@@ -32,6 +32,9 @@ def get_start_and_end(path):
 
 
 
+def check_existing_file(yaml, start, end):
+    return os.path.isfile('./History/'+yaml['getMeteoPy']['meteoModel']+'_'+yaml['getMeteoPy']['domainName']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
+
 def copy_meteo_files(yaml, start, end):
     hdf5_files = list(filter(lambda x: x.endswith('.hdf5'), list(os.walk(yaml['getMeteoPy']['meteoDirectory']))[0][2]))
     hdf5_files = list(filter(lambda x: x.startswith(yaml['getMeteoPy']['meteoName']), hdf5_files))
@@ -112,6 +115,11 @@ def delete_copied_and_created_files(yaml, hdf5_files_copied):
 def main():
     yaml = open_yaml_file('GetMeteoPy.yaml')
     start, end = get_start_and_end('./GetMeteoPy.dat')
+
+    if yaml['getMeteoPy']['dontRunIfFileExists'] and check_existing_file(yaml, start, end):
+        print('Requested day alraedy in History directory, ignoring')
+        exit(0)
+
     hdf5_files_copied = copy_meteo_files(yaml, start, end)
     write_ConvertToHDF5Action_glue(yaml, start, end, hdf5_files_copied)
     with open('glue_log.txt', 'w') as logfile:
