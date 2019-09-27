@@ -2,7 +2,7 @@
 Python script to download, glue, and interpolate metereological model data in hdf5 format to be used as forcing in a MOHID model.
 
 
-## Requirements:
+## Requirements
 ### Software:
 - a python 3 distribution
 - [PyYAML](https://pyyaml.org/) library
@@ -57,3 +57,7 @@ getMeteoPy:
 Output:
 
 `MM5_Sines1_2019-09-01_2019-09-02.hdf5`
+
+
+## How does it work
+GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) to interpolate the results to the MOHID model bathymetry
