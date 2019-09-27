@@ -78,6 +78,38 @@ D3_2019090119_2019090200.hdf5
 <end_file>
 ```
 
+INTERPOLATE GRIDS action:
+```
+<begin_file>
+
+ACTION                        : INTERPOLATE GRIDS
+TYPE_OF_INTERPOLATION         : 3
+OUTPUTFILENAME                : MM5_Sines1_2019-09-01_2019-09-02.hdf5
+NEW_GRID_FILENAME             : ../../../../GeneralData/Bathymetry/Bathymetry_Sines1.dat
+
+START                         : 2019 09 01 00 00 00
+END                           : 2019 09 02 00 00 00
+
+<<begin_father>>
+FATHER_FILENAME               : D3.hdf5
+FATHER_GRID_FILENAME          : D3.dat
+<<end_father>>
+
+<<BeginFields>>
+air temperature
+albedo
+downward long wave radiation
+mean sea level pressure
+pbl height
+precipitation
+relative humidity
+solar radiation
+wind velocity X
+wind velocity Y
+<<EndFields>>
+
+<end_file>
+```
 
 Output:
 
