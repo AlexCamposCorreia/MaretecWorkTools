@@ -123,11 +123,11 @@ def main():
     hdf5_files_copied = copy_meteo_files(yaml, start, end)
     write_ConvertToHDF5Action_glue(yaml, start, end, hdf5_files_copied)
     with open('glue_log.txt', 'w') as logfile:
-        p = subprocess.Popen('ConvertToHDF5.exe', stdout=logfile, stderr=logfile)
+        p = subprocess.Popen(yaml['getMeteoPy']['convertToHDF5exe'], stdout=logfile, stderr=logfile)
         p.wait()
     write_ConvertToHDF5Action_interpolate(yaml, start, end)
     with open('interpolation_log.txt', 'w') as logfile:
-        p = subprocess.Popen('ConvertToHDF5.exe', stdout=logfile, stderr=logfile)
+        p = subprocess.Popen(yaml['getMeteoPy']['convertToHDF5exe'], stdout=logfile, stderr=logfile)
         p.wait()
     move_interpolated_hdf5_to_History_folder(yaml, start, end)
     delete_copied_and_created_files(yaml, hdf5_files_copied)
