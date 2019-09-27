@@ -1,4 +1,5 @@
 getMeteoPy:
+  convertToHDF5exe: "C:/mohid/bin/ConvertToHDF5.exe"
   dontRunIfFileExists: 1
   meteoModel: "MM5"
   meteoDirectory: "//MWDATA/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
