@@ -8,6 +8,7 @@ Python script to download, glue, and interpolate metereological model data in hd
 ### File requirements:
 - `GetMeteoPy.dat` file with START and END dates in YYYY MM DD HH MM SS format
 - `GetMeteoPy.yaml` file with the settings
+- `History` folder on the same directory that GetMeteoPy.py is called on
 
 ## Usage
 Example `GetMeteoPy.dat`:
