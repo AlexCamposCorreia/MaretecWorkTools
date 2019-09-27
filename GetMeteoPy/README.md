@@ -16,7 +16,8 @@ Example `GetMeteoPy.dat`:
 > END: 2019 09 27 00 00 00
 
 Example `GetMeteoPy.yaml`:
-```getMeteoPy:
+```yaml
+getMeteoPy:
   dontRunIfFileExists: 1
   meteoModel: "MM5"
   meteoDirectory: "//MWDATA/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
