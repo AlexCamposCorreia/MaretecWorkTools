@@ -16,6 +16,7 @@ Example `GetMeteoPy.dat`:
 > END: 2019 09 27 00 00 00
 
 Example `GetMeteoPy.yaml`:
+
 ```yaml
 getMeteoPy:
   dontRunIfFileExists: 1
@@ -34,6 +35,7 @@ getMeteoPy:
     - "relative humidity"
     - "solar radiation"
     - "wind velocity X"
-    - "wind velocity Y"```
+    - "wind velocity Y"
+    ```
     
-    test
+    test 
