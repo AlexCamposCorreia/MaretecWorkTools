@@ -11,7 +11,7 @@ Python script to download, glue, and interpolate metereological model data to be
 
 Example `GetMeteoPy.dat`:
 
-> START: 2019 09 27 00 00 00
-> END: 2019 09 27 00 00 00
+  > START: 2019 09 27 00 00 00
+  > END: 2019 09 27 00 00 00
 
 test
