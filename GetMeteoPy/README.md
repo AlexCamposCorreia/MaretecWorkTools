@@ -14,6 +14,8 @@ Python script to download, glue, and interpolate metereological model data in hd
 - `History` folder on the same directory that GetMeteoPy.py is called on
 
 
+## How does it work
+GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) to interpolate the results to the MOHID model bathymetry
 ## Keywords
 ### List of keywords used in the `GetMeteoPy.yaml` file:
 - `getMeteoPy`
@@ -24,6 +26,7 @@ Python script to download, glue, and interpolate metereological model data in hd
   - `domainName`: (string) domain name of the MOHID model, will be used to write the output file name
   - `bathymetry`: (string) location of the MOHID model domain bathymetry
   - `propertiesToInterpolate`: (python or yaml list) list of all the properties to interpolate
+
 
 ## Example usage:
 `GetMeteoPy.dat` file:
@@ -57,7 +60,3 @@ getMeteoPy:
 Output:
 
 `MM5_Sines1_2019-09-01_2019-09-02.hdf5`
-
-
-## How does it work
-GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) to interpolate the results to the MOHID model bathymetry
