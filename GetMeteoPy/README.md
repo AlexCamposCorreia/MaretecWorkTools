@@ -1,5 +1,5 @@
 # GetMeteoPy
-Python script to download, glue, and interpolate metereological model data to be used as forcing in a MOHID model.
+Python script to download, glue, and interpolate metereological model data in hdf5 format to be used as forcing in a MOHID model.
 
 ### Software requirements:
 - a python 3 distribution
@@ -14,6 +14,16 @@ Example `GetMeteoPy.dat`:
 START:                       2019 09 27 00 00 00
 END:                         2019 09 27 00 00 00
 ```
+
+#### `GetMeteoPy.yaml` keywords:
+- `getMeteoPy`
+  - `dontRunIfFileExists`: (0/1) if file already exists, doesn't run
+  - `meteoModel`: (string) name of the meteo model, will be used to write the output file name
+  - `meteoDirectory`: (string) location of the directory containing the hdf5 meteo files
+  - `meteoName`: (string) prefix of the meteo hdf5 files
+  - `domainName`: (string) domain name of the MOHID model, will be used to write the output file name
+  - `bathymetry`: (string) location of the MOHID model domain bathymetry
+  - `propertiesToInterpolate`: (python or yaml list) list of all the properties to interpolate
 
 Example `GetMeteoPy.yaml`:
 ```yaml
