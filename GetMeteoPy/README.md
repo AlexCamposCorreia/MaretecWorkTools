@@ -25,13 +25,13 @@ Python script to download, glue, and interpolate metereological model data in hd
   - `propertiesToInterpolate`: (python or yaml list) list of all the properties to interpolate
 
 ## Example usage:
-### Example `GetMeteoPy.dat` file:
+`GetMeteoPy.dat` file:
 ```yaml
 START:                       2019 09 27 00 00 00
 END:                         2019 09 27 00 00 00
 ```
 
-### Example `GetMeteoPy.yaml` file:
+`GetMeteoPy.yaml` file:
 ```yaml
 getMeteoPy:
   dontRunIfFileExists: 1
@@ -53,5 +53,5 @@ getMeteoPy:
     - "wind velocity Y"
 ```
 
-### Example output:
+Output:
 `MM5_Sines1_2019-09-19_2019-09-20.hdf5`
