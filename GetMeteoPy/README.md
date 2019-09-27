@@ -27,8 +27,8 @@ Python script to download, glue, and interpolate metereological model data in hd
 ## Example usage:
 `GetMeteoPy.dat` file:
 ```yaml
-START:                       2019 09 27 00 00 00
-END:                         2019 09 27 00 00 00
+START:                       2019 09 01 00 00 00
+END:                         2019 09 02 00 00 00
 ```
 
 `GetMeteoPy.yaml` file:
@@ -55,4 +55,4 @@ getMeteoPy:
 
 Output:
 
-`MM5_Sines1_2019-09-19_2019-09-20.hdf5`
+`MM5_Sines1_2019-09-01_2019-09-02.hdf5`
