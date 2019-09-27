@@ -1,14 +1,15 @@
 # GetMeteoPy
 Python script to download, glue, and interpolate metereological model data in hdf5 format to be used as forcing in a MOHID model.
 
-### Software requirements:
+## Requirements:
+### Software:
 - a python 3 distribution
 - pyyaml library
-
-### Other requirements:
+### File requirements:
 - `GetMeteoPy.dat` file with START and END dates in YYYY MM DD HH MM SS format
 - `GetMeteoPy.yaml` file with the settings
 
+## Usage
 Example `GetMeteoPy.dat`:
 ```yaml
 START:                       2019 09 27 00 00 00
