@@ -15,4 +15,24 @@ Example `GetMeteoPy.dat`:
 >
 > END: 2019 09 27 00 00 00
 
-test
+Example `GetMeteoPy.yaml`:
+```getMeteoPy:
+  dontRunIfFileExists: 1
+  meteoModel: "MM5"
+  meteoDirectory: "//MWDATA/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
+  meteoName: "D3"
+  domainName: "Sines1"
+  bathymetry: "../../../../GeneralData/Bathymetry/Bathymetry_Sines1.dat"
+  propertiesToInterpolate:
+    - "air temperature"
+    - "albedo"
+    - "downward long wave radiation"
+    - "mean sea level pressure"
+    - "pbl height"
+    - "precipitation"
+    - "relative humidity"
+    - "solar radiation"
+    - "wind velocity X"
+    - "wind velocity Y"```
+    
+    test
