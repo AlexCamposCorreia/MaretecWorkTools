@@ -57,6 +57,28 @@ getMeteoPy:
     - "wind velocity Y"
 ```
 
+GLUES HDF5 FILE action:
+```
+<begin_file>
+
+ACTION                        : GLUES HDF5 FILES
+OUTPUTFILENAME                : D3.hdf5
+
+START                         : 2019 09 01 00 00 00
+END                           : 2019 09 02 00 00 00
+
+<<begin_list>>
+D3_2019083119_2019090100.hdf5
+D3_2019090101_2019090106.hdf5
+D3_2019090107_2019090112.hdf5
+D3_2019090113_2019090118.hdf5
+D3_2019090119_2019090200.hdf5
+<<end_list>>
+
+<end_file>
+```
+
+
 Output:
 
 `MM5_Sines1_2019-09-01_2019-09-02.hdf5`
