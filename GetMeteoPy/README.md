@@ -9,18 +9,12 @@ Python script to download, glue, and interpolate metereological model data in hd
 
 ### File requirements:
 - `GetMeteoPy.dat` file with START and END dates in YYYY MM DD HH MM SS format
-- `GetMeteoPy.yaml` file with the settings
+- `GetMeteoPy.yaml` file with the desired settings
 - `History` folder on the same directory that GetMeteoPy.py is called on
 
 
-## Usage
-Example `GetMeteoPy.dat`:
-```yaml
-START:                       2019 09 27 00 00 00
-END:                         2019 09 27 00 00 00
-```
-
-#### `GetMeteoPy.yaml` keywords:
+## Keywords
+### List of keywords used in the `GetMeteoPy.yaml` file:
 - `getMeteoPy`
   - `dontRunIfFileExists`: (0/1) if file already exists, doesn't run
   - `meteoModel`: (string) name of the meteo model, will be used to write the output file name
@@ -30,7 +24,14 @@ END:                         2019 09 27 00 00 00
   - `bathymetry`: (string) location of the MOHID model domain bathymetry
   - `propertiesToInterpolate`: (python or yaml list) list of all the properties to interpolate
 
-Example `GetMeteoPy.yaml`:
+## Example usage:
+### Example `GetMeteoPy.dat` file:
+```yaml
+START:                       2019 09 27 00 00 00
+END:                         2019 09 27 00 00 00
+```
+
+### Example `GetMeteoPy.yaml` file:
 ```yaml
 getMeteoPy:
   dontRunIfFileExists: 1
@@ -51,4 +52,6 @@ getMeteoPy:
     - "wind velocity X"
     - "wind velocity Y"
 ```
-test 
+
+### Example output:
+`MM5_Sines1_2019-09-19_2019-09-20.hdf5`
