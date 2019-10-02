@@ -117,7 +117,7 @@ def main():
     start, end = get_start_and_end('./GetMeteoPy.dat')
 
     if yaml['getMeteoPy']['dontRunIfFileExists'] and check_existing_file(yaml, start, end):
-        print('Requested day alraedy in History directory, ignoring')
+        print('Requested day already in History directory, ignoring')
         exit(0)
 
     hdf5_files_copied = copy_meteo_files(yaml, start, end)
