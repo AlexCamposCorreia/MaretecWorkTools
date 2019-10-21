@@ -36,17 +36,26 @@ def GetKeywords(fortran_files_paths):
             l.replace('=', ' = ')
             if l.upper().find(' KEYWORD ') > -1:
                 if l.find('!'):
-                    l = l[0:l.find('!')]
-                l = l[l.upper().find('KEYWORD')-1:]
-                if l.find('=') == -1:
+                    keyword = l[0:l.find('!')]
+                keyword = keyword[keyword.upper().find('KEYWORD')-1:]
+                if keyword.find('=') == -1:
                     continue
-                l = l.replace('\n', '')
-                l = l.strip(' &,)')
-                l = l.replace(' ','').replace("'",'').replace('"','')
-                l = l.split('=')
-                if l[1].find('%') > -1:
+                keyword = keyword.replace('\n', '')
+                keyword = keyword.strip(' &,)')
+                keyword = keyword.replace(' ','').replace("'",'').replace('"','')
+                keyword = keyword.split('=')
+                if keyword[1].find('%') > -1:
                     continue
-                keywords.append(l[1])
+                keywords.append(keyword[1])
+            if l.lower().find(' call readfilenames') > -1:
+                continue
+            if l.lower().find('call readfilename') > -1:
+                keyword = l.upper().replace('CALL READFILENAME','').replace('\n','').replace(' ','')
+                keyword = keyword.strip('()&')
+                keyword = keyword.split(',')[0]
+                keyword = keyword.replace('KEYWORD=','')
+                keyword = keyword.strip('"\'')
+                keywords.append(keyword)
 
         f1.close()
     return list(dict.fromkeys(keywords))
