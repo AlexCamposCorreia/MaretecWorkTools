@@ -1,9 +1,13 @@
 getMeteoPy:
   convertToHDF5exe: "C:/mohid/bin/ConvertToHDF5.exe"
-  dontRunIfFileExists: 1
+  # 1 to not run if file already in ./History/ directory
+  dontRunIfFileExists: 0
+  # used to write the name of the HDF5 output
   meteoModel: "MM5"
   meteoDirectory: "//MWDATA/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
+  # used to find HDF5 meteo files to copy (prefix of the HDF5 files)
   meteoName: "D3"
+  # used to write the name of the HDF5 output
   domainName: "Sines1"
   bathymetry: "../../../../GeneralData/Bathymetry/Bathymetry_Sines1.dat"
   propertiesToInterpolate:
