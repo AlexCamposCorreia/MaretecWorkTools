@@ -7,7 +7,7 @@ def split(a, n):
 
 
 def GetF90Files(main_path):
-    walker = list(os.walk('G:/Users/AlexandreCorreia/GitHub/Mohid-master/Software/'))
+    walker = list(os.walk(main_path))
     f90_files = []
 
     for i in walker:
@@ -17,51 +17,6 @@ def GetF90Files(main_path):
 
     return f90_files
 
-'''
-def GetKeywords(fortran_files_paths):
-    keywords = []
-    for fortran_file in fortran_files_paths:
-        f1 = open(fortran_file, 'r')
-        while True:
-            l = f1.readline()
-            if l == '':
-                break
-            if l.strip().startswith('!$'):
-                l = l.replace('!$','')
-            if l.strip().startswith('!'):
-                continue
-            if l.upper().find('STAT_CALL /= SUCCESS_') != -1:
-                continue
-            if l.lower().find('write(*,*)') != -1:
-                continue
-            l = ' ' + l
-            l.replace('=', ' = ')
-            if l.upper().find(' KEYWORD ') != -1:
-                if l.find('!'):
-                    keyword = l[0:l.find('!')]
-                keyword = keyword[keyword.upper().find('KEYWORD')-1:]
-                if keyword.find('=') == -1:
-                    continue
-                keyword = keyword.replace('\n', '')
-                keyword = keyword.strip(' &,)')
-                keyword = keyword.replace(' ','').replace("'",'').replace('"','')
-                keyword = keyword.split('=')
-                if keyword[1].find('%') > -1:
-                    continue
-                keywords.append(keyword[1])
-            if l.lower().find(' call readfilenames') != -1:
-                continue
-            if l.lower().find('call readfilename') != -1:
-                keyword = l.upper().replace('CALL READFILENAME','').replace('\n','').replace(' ','')
-                keyword = keyword.strip('()&')
-                keyword = keyword.split(',')[0]
-                keyword = keyword.replace('KEYWORD=','')
-                keyword = keyword.strip('"\'')
-                keywords.append(keyword)
-
-        f1.close()
-    return list(dict.fromkeys(keywords))
-'''
 
 
 def GetKeywords(fortran_files_paths):
@@ -85,13 +40,25 @@ def GetKeywords(fortran_files_paths):
             l = l.replace(',', ' , ')
             if l.lower().find(' keyword ') != -1 and l.lower().rfind('=') > l.lower().rfind(' keyword'):
                 if l.find('!'):
-                    l = l[0:l.find('!')]
-                l = l.strip('(),& ')
-                l = l.replace(' ','').replace('"','').replace("'",'')
-                l = l.split('=')[-1]
+                    keyword = l[0:l.find('!')]
+                keyword = keyword.strip('(),& ')
+                keyword = keyword.replace(' ','').replace('"','').replace("'",'')
+                keyword = keyword.split('=')[-1]
                 if l.find('%') != -1:
                     continue
-                keywords.append(l)
+                if l.find('trim(') != -1:
+                    continue
+                keywords.append(keyword)
+            if l.lower().find('call readfilenames') != -1:
+                continue
+            if l.lower().find('call readfilename') != -1:
+                keyword = l.replace('call ReadFileName','').replace('\n','').replace(' ','')
+                keyword = keyword.strip('()&')
+                keyword = keyword.split(',')[0]
+                keyword = keyword.replace('KEYWORD=','').replace('Keyword=','').replace('keyword=','')
+                keyword = keyword.strip('"\'')
+                keywords.append(keyword)
+
         f1.close()
     return list(dict.fromkeys(keywords))
 
@@ -164,9 +131,8 @@ def WriteKeywordsToFile(file_path, keywords, n=1, quotations=False):
 
 
 def main():
-    
-    f90_files = GetF90Files('G:/Users/AlexandreCorreia/GitHub/Mohid-master/Software/')
-    
+    main_path = 'G:/Users/AlexandreCorreia/GitHub/Originals/Mohid/Software/'
+    f90_files = GetF90Files(main_path)
     keywords = GetKeywords(f90_files)
     WriteKeywordsToFile('./MOHIDkeywords.txt', keywords, n=4)
     blocks = GetBlocks(f90_files)
