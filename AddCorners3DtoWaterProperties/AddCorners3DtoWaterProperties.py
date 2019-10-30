@@ -1,26 +1,33 @@
+import numpy as np
 import h5py
 
-hydrodynamic_file = 'Hydrodynamic_1.hdf5'
-waterproperties_file = 'WaterProperties_1.hdf5'
+hydrodynamic_file = './Hydrodynamic.hdf5'
+waterproperties_file = './WaterProperties.hdf5'
 
-f = h5py.File(hydrodynamic_file, 'r')
-Corners3D_Latitude = f['Grid']['Corners3D']['Latitude'][:,:,:]
-Corners3D_Longitude = f['Grid']['Corners3D']['Longitude'][:,:,:]
-Corners3D_Vertical = f['Grid']['Corners3D']['Vertical'][:,:,:]
-f.close()
+f1 = h5py.File(hydrodynamic_file, 'r')
+f2 = h5py.File(waterproperties_file, 'a')
 
+f2.create_group('Grid/Corners3D')
 
-f = h5py.File(waterproperties_file, 'a')
-try:
-    f.create_dataset('/Grid/Corners3D/Latitude', data=Corners3D_Latitude)
-except RuntimeError:
-    pass
-try:
-    f.create_dataset('/Grid/Corners3D/Longitude', data=Corners3D_Longitude)
-except RuntimeError:
-    pass
-try:
-    f.create_dataset('/Grid/Corners3D/Vertical', data=Corners3D_Vertical)
-except RuntimeError:
-    pass
-f.close()
+attr_list = list(f1['Grid/Corners3D'].attrs.keys())
+for attr in attr_list:
+    f2['Grid/Corners3D'].attrs.create(
+        name=attr,
+        data=f1['Grid/Corners3D'].attrs[attr],
+        dtype=f1['Grid/Corners3D'].attrs[attr].dtype)
+
+for prop in (list(f1['Grid/Corners3D'].keys())):
+    f2['Grid/Corners3D'].create_dataset_like(
+        name=prop,
+        other=f1['Grid/Corners3D/'+prop],
+        data=np.asarray(f1['Grid/Corners3D/'+prop]))
+    
+    attr_list = list(f1['Grid/Corners3D/'+prop].attrs.keys())
+    for attr in attr_list:
+        f2['Grid/Corners3D/'+prop].attrs.create(
+            name=attr,
+            data=f1['Grid/Corners3D/'+prop].attrs[attr],
+            dtype=f1['Grid/Corners3D/'+prop].attrs[attr].dtype)
+
+f1.close()
+f2.close()
