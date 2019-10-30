@@ -1,0 +1,321 @@
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.8.1)  1 OCT 2019 13:58
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**comparison_pdf.tex
+(./comparison_pdf.tex
+LaTeX2e <2018-12-01>
+(c:/texlive/2019/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(c:/texlive/2019/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(c:/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(c:/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+
+(c:/texlive/2019/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(c:/texlive/2019/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count88
+\float@exts=\toks15
+\float@box=\box27
+\@float@everytoks=\toks16
+\@floatcapt=\box28
+) (./comparison_pdf.aux)
+\openout1 = `comparison_pdf.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+File: ../campanha1_2018-06-29/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha1_2018-06-29/comparison/temperature.pdf>
+File: ../campanha1_2018-06-29/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha1_2018-06-29/comparison/salinity.pdf>
+File: ../campanha1_2018-06-29/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha1_2018-06-29/comparison/density.pdf>
+File: ../campanha1_2018-06-29/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha1_2018-06-29/comparison/oxygen.pdf>
+File: ../campanha2_2018-10-25/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha2_2018-10-25/comparison/temperature.pdf>
+File: ../campanha2_2018-10-25/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha2_2018-10-25/comparison/salinity.pdf>
+File: ../campanha2_2018-10-25/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha2_2018-10-25/comparison/density.pdf>
+File: ../campanha2_2018-10-25/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha2_2018-10-25/comparison/oxygen.pdf>
+File: ../campanha3_2019-03-12/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha3_2019-03-12/comparison/temperature.pdf>
+File: ../campanha3_2019-03-12/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha3_2019-03-12/comparison/salinity.pdf>
+File: ../campanha3_2019-03-12/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha3_2019-03-12/comparison/density.pdf>
+File: ../campanha3_2019-03-12/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha3_2019-03-12/comparison/oxygen.pdf>
+File: ../campanha4_2019-04-30/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha4_2019-04-30/comparison/temperature.pdf>
+File: ../campanha4_2019-04-30/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha4_2019-04-30/comparison/salinity.pdf>
+File: ../campanha4_2019-04-30/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha4_2019-04-30/comparison/density.pdf>
+File: ../campanha4_2019-04-30/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha4_2019-04-30/comparison/oxygen.pdf>
+File: ../campanha5_2019-05-23/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha5_2019-05-23/comparison/temperature.pdf>
+File: ../campanha5_2019-05-23/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha5_2019-05-23/comparison/salinity.pdf>
+File: ../campanha5_2019-05-23/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha5_2019-05-23/comparison/density.pdf>
+
+
+LaTeX Warning: File `../campanha5_2019-05-23/comparison/oxygen.pdf' not found o
+n input line 86.
+
+! Unable to load picture or PDF file '../campanha5_2019-05-23/comparison/oxygen
+.pdf'.
+<to be read again> 
+                   }
+l.86 ...ampanha5_2019-05-23/comparison/oxygen.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.86 ...ampanha5_2019-05-23/comparison/oxygen.pdf}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../campanha5_2019-05-23/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha5_2019-05-23/comparison/oxygen.pdf>
+! Unable to load picture or PDF file '../campanha5_2019-05-23/comparison/oxygen
+.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.86 ...ampanha5_2019-05-23/comparison/oxygen.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+LaTeX Warning: File `../campanha6_2019-07-29/comparison/temperature.pdf' not fo
+und on input line 90.
+
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/temper
+ature.pdf'.
+<to be read again> 
+                   }
+l.90 ...ha6_2019-07-29/comparison/temperature.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 ...ha6_2019-07-29/comparison/temperature.pdf}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../campanha6_2019-07-29/comparison/temperature.pdf Graphic file (type pdf
+)
+<use ../campanha6_2019-07-29/comparison/temperature.pdf>
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/temper
+ature.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.90 ...ha6_2019-07-29/comparison/temperature.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+LaTeX Warning: File `../campanha6_2019-07-29/comparison/salinity.pdf' not found
+ on input line 94.
+
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/salini
+ty.pdf'.
+<to be read again> 
+                   }
+l.94 ...panha6_2019-07-29/comparison/salinity.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 ...panha6_2019-07-29/comparison/salinity.pdf}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../campanha6_2019-07-29/comparison/salinity.pdf Graphic file (type pdf)
+<use ../campanha6_2019-07-29/comparison/salinity.pdf>
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/salini
+ty.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.94 ...panha6_2019-07-29/comparison/salinity.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+LaTeX Warning: File `../campanha6_2019-07-29/comparison/density.pdf' not found 
+on input line 98.
+
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/densit
+y.pdf'.
+<to be read again> 
+                   }
+l.98 ...mpanha6_2019-07-29/comparison/density.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.98 ...mpanha6_2019-07-29/comparison/density.pdf}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../campanha6_2019-07-29/comparison/density.pdf Graphic file (type pdf)
+<use ../campanha6_2019-07-29/comparison/density.pdf>
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/densit
+y.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.98 ...mpanha6_2019-07-29/comparison/density.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+LaTeX Warning: File `../campanha6_2019-07-29/comparison/oxygen.pdf' not found o
+n input line 102.
+
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/oxygen
+.pdf'.
+<to be read again> 
+                   }
+l.102 ...mpanha6_2019-07-29/comparison/oxygen.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+
+! Package graphics Error: Division by 0.
+
+See the graphics package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 ...mpanha6_2019-07-29/comparison/oxygen.pdf}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+File: ../campanha6_2019-07-29/comparison/oxygen.pdf Graphic file (type pdf)
+<use ../campanha6_2019-07-29/comparison/oxygen.pdf>
+! Unable to load picture or PDF file '../campanha6_2019-07-29/comparison/oxygen
+.pdf'.
+<to be read again> 
+                   \GPT@clipend 
+l.102 ...mpanha6_2019-07-29/comparison/oxygen.pdf}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+File: ../comparison/temperature.pdf Graphic file (type pdf)
+<use ../comparison/temperature.pdf>
+File: ../comparison/salinity.pdf Graphic file (type pdf)
+<use ../comparison/salinity.pdf>
+File: ../comparison/density.pdf Graphic file (type pdf)
+<use ../comparison/density.pdf>
+File: ../comparison/oxygen.pdf Graphic file (type pdf)
+<use ../comparison/oxygen.pdf>
+[1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] (./comparison_pdf.aux) ) 
+Here is how much of TeX's memory you used:
+ 743 strings out of 492909
+ 12829 string characters out of 6136300
+ 73727 words of memory out of 5000000
+ 4847 multiletter control sequences out of 15000+600000
+ 3648 words of font info for 15 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 25i,5n,19p,209b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on comparison_pdf.pdf (11 pages).
