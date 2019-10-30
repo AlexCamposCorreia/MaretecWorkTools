@@ -2,8 +2,7 @@
 Python script to add the Corners3D group and properties to a WaterProperties.hdf5 file so it can be visualized in ParaView.
 
 
-## Requirements
-### Software:
+## Requirements:
 - a python 3 distribution
 - numpy library
 - h5py library
