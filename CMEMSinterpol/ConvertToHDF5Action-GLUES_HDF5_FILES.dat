@@ -1,0 +1,14 @@
+!Template file
+!OUTPUTFILENAME, START, END and the list block are used by CMEMSinterpol
+<begin_file>
+
+ACTION                        : GLUES HDF5 FILES
+OUTPUTFILENAME                :
+
+START                         :
+END                           :
+
+<<begin_list>>
+<<end_list>>
+
+<end_file>

@@ -1,0 +1,13 @@
+START                         : 2016 06 01 00 00 00
+END                           : 2016 06 02 00 00 00
+
+CONVERTTOHDF5_EXE             : C:/mohid/bin/ConvertToHDF5.exe
+
+INPUT_DIR                     : //MWDATA/Storage01/CMEMS/Extract/North_Atlantic/
+INPUT_NAME                    : North_Atlantic
+
+OUTPUT_DIR                    : ./History/
+OUTPUT_NAME                   : Myocean_Bristol_Level2
+
+INTERPOLATE_GRIDS_TEMPLATE    : ./ConvertToHDF5Action-INTERPOLATE_GRIDS.dat
+GLUES_HDF5_FILES_TEMPLATE     : ./ConvertToHDF5Action-GLUES_HDF5_FILES.dat

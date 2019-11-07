@@ -1,0 +1,23 @@
+!Template file
+!FATHER_FILENAME, OUTPUTFILENAME START and END are used by CMEMSinterpol
+<begin_file>
+ACTION                        : INTERPOLATE GRIDS
+TYPE_OF_INTERPOLATION         : 1
+
+FATHER_FILENAME               :
+OUTPUTFILENAME                :
+
+START                         :
+END                           :
+
+FATHER_GRID_FILENAME          : ./GeneralData/MyOceanGrid_North_Atlantic.dat
+NEW_GRID_FILENAME             : ./GeneralData/Bristol_Level1.dat
+
+FATHER_GEOMETRY               : ./GeneralData/MyOceanGeometry_2013.dat
+NEW_GEOMETRY                  : ./GeneralData/Geometry_1.dat
+
+INTERPOLATION3D               : 1
+POLI_DEGREE                   : 2
+DO_NOT_BELIEVE_MAP            : 1
+EXTRAPOLATE_2D                : 4
+<end_file>
