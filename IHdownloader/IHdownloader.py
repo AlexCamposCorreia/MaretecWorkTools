@@ -64,20 +64,30 @@ def save_data_in_csv(boia_name, df, year, month):
     df.to_csv(output_location, sep=',')
 
 
+def split_df_by_month(df):
+    df_indexes = df.index.values
+    df_indexes_last_month = []
+    df_indexes_curr_month = []
+    for i in df_indexes:
+        if datetime.strptime(i, '%Y-%m-%d %H:%M').month < datetime.now().month:
+            df_indexes_last_month.append(i)
+        else:
+            df_indexes_curr_month.append(i)
+    df1 = df.loc[:df_indexes_last_month[-1],:]
+    df2 = df.loc[df_indexes_curr_month[0]:,:]
+    return df1, df2
+
 
 def main():
     global driver
 
-    now = datetime.now()
+    url = 'https://www.hidrografico.pt/m.boias'
 
     chrome_options = Options()
     chrome_options.add_argument('--headless')
-
     driver = webdriver.Chrome(chrome_options=chrome_options)
-
-    url = 'https://www.hidrografico.pt/m.boias'
-
     driver.get(url)
+
     boia_dropdown = driver.find_element_by_id('dropdown')
     boia_dropdown_options = [x.text for x in boia_dropdown.find_elements_by_tag_name('option')]
 
@@ -94,6 +104,8 @@ def main():
 
         boia_name = unidecode(boia_opt).replace(' ','_')
 
+        now = datetime.now()
+
         if now.day > 2:
             df_new = get_new_data(par_dropdown)
             df_new = df_new.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
@@ -106,23 +118,32 @@ def main():
                 save_data_in_csv(boia_name, df, now.year, now.month)
             except FileNotFoundError:
                 save_data_in_csv(boia_name, df_new, now.year, now.month)
-                
 
-        '''
         elif now.day <= 2:
             last_month = now - timedelta(days=15)
-            df_old = get_old_data(boia_name, last_month.year, last_month.month)
-            df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-            df_old = df_old.dropna()
             df_new = get_new_data(par_dropdown)
             df_new = df_new.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
             df_new = df_new.dropna()
-        '''
+            df_new_1, df_new_2 = split_df_by_month(df_new)
+            try:
+                df_old = get_old_data(boia_name, last_month.year, last_month.month)
+                df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
+                df_old = df_old.dropna()
+                df = concat_old_and_new_df(df_new_1, df_old)
+                save_data_in_csv(boia_name, df, last_month.year, last_month.month)
+            except FileNotFoundError:
+                save_data_in_csv(boia_name, df_new_1, last_month.year, last_month.month)
+            try:
+                df_old = get_old_data(boia_name, now.year, now.month)
+                df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
+                df_old = df_old.dropna()
+                df = concat_old_and_new_df(df_new_2, df_old)
+                save_data_in_csv(boia_name, df, now.year, now.month)
+            except FileNotFoundError:
+                save_data_in_csv(boia_name, df_new_2, now.year, now.month)
 
     driver.close()
 
 
 if __name__ == '__main__':
-    print('Working...')
     main()
-    print('Finished.')
