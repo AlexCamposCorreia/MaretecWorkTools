@@ -2,6 +2,8 @@ import os
 from datetime import datetime, timedelta
 from shutil import copy2, move
 import subprocess
+from mohid_reader import mohid_dat_reader
+
 
 def clean_previous():
     try:
@@ -12,39 +14,6 @@ def clean_previous():
         os.remove('ConvertToHDF5Action_log.dat')
     except FileNotFoundError:
         pass
-
-
-def process_keywords(key, value):
-    if key == 'START' or key == 'END':
-        value = datetime.strptime(value, '%Y %m %d %H %M %S')
-    if key.find('DIR') != -1 and value.find('\\') != -1:
-        value.replace('\\','/')
-    if key.find('DIR') != -1 and not value.endswith('/'):
-        value = value + '/'
-    return key, value
-
-
-def get_dat(path):
-    f = open(path)
-    dat = {}
-    while True:
-        l = f.readline()
-        if l == '':
-            break
-        if l.startswith('!'):
-            continue
-        if l.find('!') != -1:
-            l = l[:l.find('!')]
-        if l.find(':') != -1:
-            key = l[:l.find(':')]
-            value = l[l.find(':')+1:]
-            key = key.strip(' \n')
-            value = value.strip(' \n')
-            key = key.upper()
-            key, value = process_keywords(key, value)
-            dat.update({key: value})
-    f.close()
-    return dat
 
 
 def download_files(dat):
@@ -158,7 +127,7 @@ def clean(files):
 
 def main():
     clean_previous()
-    dat = get_dat('CMEMSinterpol.dat')
+    dat = mohid_dat_reader.get_mohid_dat('CMEMSinterpol.dat')
     downloaded_files, files_dates = download_files(dat)
     interpolated_files = []
     for date in files_dates:
