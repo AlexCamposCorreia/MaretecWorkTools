@@ -109,11 +109,11 @@ def main():
         if now.day > 2:
             df_new = get_new_data(par_dropdown)
             df_new = df_new.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-            df_new = df_new.dropna()
+            df_new = df_new.dropna(how='all')
             try:
                 df_old = get_old_data(boia_name, now.year, now.month)
                 df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-                df_old = df_old.dropna()
+                df_old = df_old.dropna(how='all')
                 df = concat_old_and_new_df(df_new, df_old)
                 save_data_in_csv(boia_name, df, now.year, now.month)
             except FileNotFoundError:
@@ -123,12 +123,12 @@ def main():
             last_month = now - timedelta(days=15)
             df_new = get_new_data(par_dropdown)
             df_new = df_new.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-            df_new = df_new.dropna()
+            df_new = df_new.dropna(how='all')
             df_new_1, df_new_2 = split_df_by_month(df_new)
             try:
                 df_old = get_old_data(boia_name, last_month.year, last_month.month)
                 df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-                df_old = df_old.dropna()
+                df_old = df_old.dropna(how='all')
                 df = concat_old_and_new_df(df_new_1, df_old)
                 save_data_in_csv(boia_name, df, last_month.year, last_month.month)
             except FileNotFoundError:
@@ -136,7 +136,7 @@ def main():
             try:
                 df_old = get_old_data(boia_name, now.year, now.month)
                 df_old = df_old.apply(lambda x: x.str.strip() if isinstance(x, str) else x).replace('', np.nan)
-                df_old = df_old.dropna()
+                df_old = df_old.dropna(how='all')
                 df = concat_old_and_new_df(df_new_2, df_old)
                 save_data_in_csv(boia_name, df, now.year, now.month)
             except FileNotFoundError:
