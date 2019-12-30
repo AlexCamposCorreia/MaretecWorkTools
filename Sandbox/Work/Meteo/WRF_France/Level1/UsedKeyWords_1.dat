@@ -1,0 +1,81 @@
+ OUTWATCH                  ConvertToHDF5             Do not have               From File                 ************                                                 YES
+ ACTION                    ConvertToHDF5             Do not have               From Block                PATCH HDF5 FILES                                             YES
+ OUTPUTFILENAME            ConvertToHDF5             Do not have               From Block                Loire_Level1_2019-12-12_2019-12-13.hdf5                      YES
+ NEW_GRID_FILENAME         ConvertToHDF5             Do not have               From Block                ../../../../GeneralData/Bathymetry/Loire_Level1.dat          YES
+ TYPE_OF_INTERPOLATION     ConvertToHDF5             3                         From Block                3                                                            YES
+ START                     ConvertToHDF5             Do not have               From Block                2019.00000000000 12.0000000000000 12.0000000000000 0.0000000 YES
+ END                       ConvertToHDF5             Do not have               From Block                2019.00000000000 12.0000000000000 13.0000000000000 0.0000000 YES
+ FATHER_FILENAME           ConvertToHDF5             Do not have               From Block In Block       WRF_D1.hdf5                                                  YES
+ FATHER_GRID_FILENAME      ConvertToHDF5             Do not have               From Block In Block       ./HazRunOff_WRF_France_D1.dat                                YES
+ LEVEL                     ConvertToHDF5             Do not have               From Block In Block       1                                                            YES
+ N_REMOVE_FRAME            ConvertToHDF5             0                         From Block In Block       0                                                            YES
+ FATHER_FILENAME           ConvertToHDF5             Do not have               From Block In Block       WRF_D1_2.hdf5                                                YES
+ FATHER_GRID_FILENAME      ConvertToHDF5             Do not have               From Block In Block       ./HazRunOff_WRF_France_D1.dat                                YES
+ LEVEL                     ConvertToHDF5             Do not have               From Block In Block       2                                                            YES
+ N_REMOVE_FRAME            ConvertToHDF5             0                         From Block In Block       0                                                            YES
+ ILB_IUB                   HorizontalGrid            Do not have               From File                 1 57                                                         YES
+ JLB_JUB                   HorizontalGrid            Do not have               From File                 1 91                                                         YES
+ HALOPOINTS                HorizontalGrid            3                         From File                 3                                                            YES
+ COORD_TIP                 HorizontalGrid            Do not have               From File                 4                                                            YES
+ LATITUDE                  HorizontalGrid            Do not have               From File                 46.9376000000000                                             YES
+ LONGITUDE                 HorizontalGrid            Do not have               From File                 -2.63720000000000                                            YES
+ DATUM                     HorizontalGrid            3                         From File                 3                                                            YES
+ EASTING                   HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ NORTHING                  HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ PROJ_TYPE                 HorizontalGrid            11                        From File                 8                                                            YES
+ SP1                       HorizontalGrid            30.0000000000000          From File                 30.0000000000000                                             YES
+ SP2                       HorizontalGrid            60.0000000000000          From File                 60.0000000000000                                             YES
+ ORIGIN                    HorizontalGrid            Do not have               From File                 0.00000000000000 0.00000000000000                            YES
+ GRID_ANGLE                HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ CONSTANT_SPACING_Y        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ CONSTANT_SPACING_X        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ BORDER_LIMITS             ModuleHorizontalGrid      Do not have               From File                                                                              YES
+ FILL_VALUE                ModuleGridData            -99.0000000000000         From File                 -99.0000000000000                                            YES
+ TYPE_ZUV                  ModuleGridData            Z                         From File                 Z                                                            YES
+ EVOLUTION                 ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ CONSTANT_IN_SPACE         ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ DEFAULT_VALUE             ModuleGridData            0.00000000000000          From File                 0.00000000000000                                             YES
+ ILB_IUB                   HorizontalGrid            Do not have               From File                 1 57                                                         YES
+ JLB_JUB                   HorizontalGrid            Do not have               From File                 1 91                                                         YES
+ HALOPOINTS                HorizontalGrid            3                         From File                 3                                                            YES
+ COORD_TIP                 HorizontalGrid            Do not have               From File                 4                                                            YES
+ LATITUDE                  HorizontalGrid            Do not have               From File                 46.9376000000000                                             YES
+ LONGITUDE                 HorizontalGrid            Do not have               From File                 -2.63720000000000                                            YES
+ DATUM                     HorizontalGrid            3                         From File                 3                                                            YES
+ EASTING                   HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ NORTHING                  HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ PROJ_TYPE                 HorizontalGrid            11                        From File                 8                                                            YES
+ SP1                       HorizontalGrid            30.0000000000000          From File                 30.0000000000000                                             YES
+ SP2                       HorizontalGrid            60.0000000000000          From File                 60.0000000000000                                             YES
+ ORIGIN                    HorizontalGrid            Do not have               From File                 0.00000000000000 0.00000000000000                            YES
+ GRID_ANGLE                HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ CONSTANT_SPACING_Y        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ CONSTANT_SPACING_X        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ BORDER_LIMITS             ModuleHorizontalGrid      Do not have               From File                                                                              YES
+ FILL_VALUE                ModuleGridData            -99.0000000000000         From File                 -99.0000000000000                                            YES
+ TYPE_ZUV                  ModuleGridData            Z                         From File                 Z                                                            YES
+ EVOLUTION                 ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ CONSTANT_IN_SPACE         ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ DEFAULT_VALUE             ModuleGridData            0.00000000000000          From File                 0.00000000000000                                             YES
+ ILB_IUB                   HorizontalGrid            Do not have               From File                 1 42                                                         YES
+ JLB_JUB                   HorizontalGrid            Do not have               From File                 1 81                                                         YES
+ HALOPOINTS                HorizontalGrid            3                         From File                 3                                                            YES
+ COORD_TIP                 HorizontalGrid            Do not have               From File                 4                                                            YES
+ LATITUDE                  HorizontalGrid            Do not have               From File                 46.9376000000000                                             YES
+ LONGITUDE                 HorizontalGrid            Do not have               From File                 -2.63720000000000                                            YES
+ DATUM                     HorizontalGrid            3                         From File                 3                                                            YES
+ EASTING                   HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ NORTHING                  HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ PROJ_TYPE                 HorizontalGrid            11                        From File                 11                                                           YES
+ SP1                       HorizontalGrid            30.0000000000000          From File                 30.0000000000000                                             YES
+ SP2                       HorizontalGrid            60.0000000000000          From File                 60.0000000000000                                             YES
+ ORIGIN                    HorizontalGrid            Do not have               From File                 -4.13720000000000 46.2376000000000                           YES
+ GRID_ANGLE                HorizontalGrid            0.00000000000000          From File                 0.00000000000000                                             YES
+ CONSTANT_SPACING_Y        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ CONSTANT_SPACING_X        Unknown Client            Do not have               From File                 FALSE                                                        YES
+ BORDER_LIMITS             ModuleHorizontalGrid      Do not have               From File                                                                              YES
+ FILL_VALUE                ModuleGridData            -99.0000000000000         From File                 -99.0000000000000                                            YES
+ TYPE_ZUV                  ModuleGridData            Z                         From File                 Z                                                            YES
+ EVOLUTION                 ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ CONSTANT_IN_SPACE         ModuleGridData            FALSE                     From File                 FALSE                                                        YES
+ DEFAULT_VALUE             ModuleGridData            0.00000000000000          From File                 0.00000000000000                                             YES

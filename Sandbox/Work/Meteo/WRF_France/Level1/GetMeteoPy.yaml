@@ -1,0 +1,45 @@
+getMeteoPy:
+  # location of your ConvertToHDF5.exe MOHID tool
+  convertToHDF5exe: "../../ConvertToHDF5/ConvertToHDF5.exe"
+  
+  # MOHID bathymetry file of your Water or Land domain
+  bathymetry: "../../../../GeneralData/Bathymetry/Loire_Level1.dat"
+
+  # directory to write the output to
+  outputDirectory: "./History/"
+  # used to write the name of the HDF5 output
+  outputPrefix: "Loire_Level1"
+  
+  # type of interpolation to be used by the ConvertToHDF5
+  typeOfInterpolation: 3
+  
+  # used to find the HDF5 meteo files to copy
+  # given just 1 model it will use ConvertToHDF5's INTERPOLATE GRIDS action
+  # if more than 1 model is given it will use ConvertToHDF5's PATCH HDF5 FILES action
+  meteoModels:
+    WRF_D1:
+      meteoDirectory: "//hazrunoff/Storage/Model Domains/France/WRF/D1/"
+      meteoFileFormat: "HazRunOff_WRF_France_D1_%Y%m%d%H.hdf5"
+      meteoFileHours: 96
+      meteoRemoveStartupHours: 24
+      meteoDatFile: "./HazRunOff_WRF_France_D1.dat"
+      level: 1
+    WRF_D1_2:
+      meteoDirectory: "//hazrunoff/Storage/Model Domains/France/WRF/D1/"
+      meteoFileFormat: "HazRunOff_WRF_France_D1_%Y%m%d%H.hdf5"
+      meteoFileHours: 96
+      meteoRemoveStartupHours: 24
+      meteoDatFile: "./HazRunOff_WRF_France_D1.dat"
+      level: 2
+
+  # use this if you don't want to interpolate all of the properties present in the meteo HDF5
+  propertiesToInterpolate:
+    - "air temperature"
+    - "downward long wave radiation"
+    - "mean sea level pressure"
+    - "precipitation"
+    - "relative humidity"
+    - "solar radiation"
+    - "wind velocity X"
+    - "wind velocity Y"
+    - "wind modulus"

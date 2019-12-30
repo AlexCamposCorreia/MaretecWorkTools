@@ -1,0 +1,37 @@
+<begin_file>
+
+! Written by GetMeteoPy
+ACTION                        : PATCH HDF5 FILES
+TYPE_OF_INTERPOLATION         : 3
+
+START                         : 2019 12 12 00 00 00
+END                           : 2019 12 13 00 00 00
+
+OUTPUTFILENAME                : Loire_Level1_2019-12-12_2019-12-13.hdf5
+NEW_GRID_FILENAME             : ../../../../GeneralData/Bathymetry/Loire_Level1.dat
+
+<<begin_father>>
+FATHER_FILENAME               : WRF_D1.hdf5
+FATHER_GRID_FILENAME          : ./HazRunOff_WRF_France_D1.dat
+LEVEL                         : 1
+<<end_father>>
+
+<<begin_father>>
+FATHER_FILENAME               : WRF_D1_2.hdf5
+FATHER_GRID_FILENAME          : ./HazRunOff_WRF_France_D1.dat
+LEVEL                         : 2
+<<end_father>>
+
+<<BeginFields>>
+air temperature
+downward long wave radiation
+mean sea level pressure
+precipitation
+relative humidity
+solar radiation
+wind velocity X
+wind velocity Y
+wind modulus
+<<EndFields>>
+
+<end_file>

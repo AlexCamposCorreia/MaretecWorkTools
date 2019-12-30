@@ -1,0 +1,520 @@
+ -------------------------- MOHID -------------------------
+ 
+       AUTHOR   : IST/MARETEC, Marine Modelling Group      
+       WWW      : http://www.mohid.com
+ 
+ 
+ Copyright (C) 1985, 1998, 2002, 2006.
+ Instituto Superior Tecnico, Technical University of Lisbon
+ -------------------------- MOHID -------------------------
+ 
+ Constructing ConvertToHDF5
+ Please Wait...
+ 
+ Running ConvertToHDF5...
+ 
+ No error message
+ Data File does not exists : nomfich.dat
+ INTERPOLATE GRIDS                                                              
+                                                  
+ Reading instructions...
+ 
+ Type of interpolation : Triangulation
+ 
+ Constructing father grid...
+ Using Lambert Conformal Conic Projection
+ with parameters :
+ SP1                  =  39.9000015258789
+ SP2                  =  39.9000015258789
+ Reference Longitude  =  -8.87344360351562
+ Reference Latitude   =  39.6966819763184
+ 
+ Constructing new grid...
+ Constructing communication between grids...
+ Number of instants in available data:           30
+ Reading air temperature fields
+ Interpolating : air temperature_00001           2
+ Interpolating : air temperature_00002           4
+ Interpolating : air temperature_00003           6
+ Interpolating : air temperature_00004           8
+ Interpolating : air temperature_00005          10
+ Interpolating : air temperature_00006          12
+ Interpolating : air temperature_00007          14
+ Interpolating : air temperature_00008          16
+ Interpolating : air temperature_00009          18
+ Interpolating : air temperature_00010          20
+ Interpolating : air temperature_00011          22
+ Interpolating : air temperature_00012          24
+ Interpolating : air temperature_00013          26
+ Interpolating : air temperature_00014          28
+ Interpolating : air temperature_00015          30
+ Interpolating : air temperature_00016          32
+ Interpolating : air temperature_00017          34
+ Interpolating : air temperature_00018          36
+ Interpolating : air temperature_00019          38
+ Interpolating : air temperature_00020          40
+ Interpolating : air temperature_00021          42
+ Interpolating : air temperature_00022          44
+ Interpolating : air temperature_00023          46
+ Interpolating : air temperature_00024          48
+ Interpolating : air temperature_00025          50
+ Reading albedo fields
+ Interpolating : albedo_00001          52
+ Interpolating : albedo_00002          54
+ Interpolating : albedo_00003          56
+ Interpolating : albedo_00004          58
+ Interpolating : albedo_00005          60
+ Interpolating : albedo_00006          62
+ Interpolating : albedo_00007          64
+ Interpolating : albedo_00008          66
+ Interpolating : albedo_00009          68
+ Interpolating : albedo_00010          70
+ Interpolating : albedo_00011          72
+ Interpolating : albedo_00012          74
+ Interpolating : albedo_00013          76
+ Interpolating : albedo_00014          78
+ Interpolating : albedo_00015          80
+ Interpolating : albedo_00016          82
+ Interpolating : albedo_00017          84
+ Interpolating : albedo_00018          86
+ Interpolating : albedo_00019          88
+ Interpolating : albedo_00020          90
+ Interpolating : albedo_00021          92
+ Interpolating : albedo_00022          94
+ Interpolating : albedo_00023          96
+ Interpolating : albedo_00024          98
+ Interpolating : albedo_00025         100
+ Reading atmospheric pressure fields
+ Interpolating : atmospheric pressure_00001         102
+ Interpolating : atmospheric pressure_00002         104
+ Interpolating : atmospheric pressure_00003         106
+ Interpolating : atmospheric pressure_00004         108
+ Interpolating : atmospheric pressure_00005         110
+ Interpolating : atmospheric pressure_00006         112
+ Interpolating : atmospheric pressure_00007         114
+ Interpolating : atmospheric pressure_00008         116
+ Interpolating : atmospheric pressure_00009         118
+ Interpolating : atmospheric pressure_00010         120
+ Interpolating : atmospheric pressure_00011         122
+ Interpolating : atmospheric pressure_00012         124
+ Interpolating : atmospheric pressure_00013         126
+ Interpolating : atmospheric pressure_00014         128
+ Interpolating : atmospheric pressure_00015         130
+ Interpolating : atmospheric pressure_00016         132
+ Interpolating : atmospheric pressure_00017         134
+ Interpolating : atmospheric pressure_00018         136
+ Interpolating : atmospheric pressure_00019         138
+ Interpolating : atmospheric pressure_00020         140
+ Interpolating : atmospheric pressure_00021         142
+ Interpolating : atmospheric pressure_00022         144
+ Interpolating : atmospheric pressure_00023         146
+ Interpolating : atmospheric pressure_00024         148
+ Interpolating : atmospheric pressure_00025         150
+ Reading downward long wave radiation fields
+ Interpolating : downward long wave radiation_00001         152
+ Interpolating : downward long wave radiation_00002         154
+ Interpolating : downward long wave radiation_00003         156
+ Interpolating : downward long wave radiation_00004         158
+ Interpolating : downward long wave radiation_00005         160
+ Interpolating : downward long wave radiation_00006         162
+ Interpolating : downward long wave radiation_00007         164
+ Interpolating : downward long wave radiation_00008         166
+ Interpolating : downward long wave radiation_00009         168
+ Interpolating : downward long wave radiation_00010         170
+ Interpolating : downward long wave radiation_00011         172
+ Interpolating : downward long wave radiation_00012         174
+ Interpolating : downward long wave radiation_00013         176
+ Interpolating : downward long wave radiation_00014         178
+ Interpolating : downward long wave radiation_00015         180
+ Interpolating : downward long wave radiation_00016         182
+ Interpolating : downward long wave radiation_00017         184
+ Interpolating : downward long wave radiation_00018         186
+ Interpolating : downward long wave radiation_00019         188
+ Interpolating : downward long wave radiation_00020         190
+ Interpolating : downward long wave radiation_00021         192
+ Interpolating : downward long wave radiation_00022         194
+ Interpolating : downward long wave radiation_00023         196
+ Interpolating : downward long wave radiation_00024         198
+ Interpolating : downward long wave radiation_00025         200
+ Reading latent heat fields
+ Interpolating : latent heat_00001         202
+ Interpolating : latent heat_00002         204
+ Interpolating : latent heat_00003         206
+ Interpolating : latent heat_00004         208
+ Interpolating : latent heat_00005         210
+ Interpolating : latent heat_00006         212
+ Interpolating : latent heat_00007         214
+ Interpolating : latent heat_00008         216
+ Interpolating : latent heat_00009         218
+ Interpolating : latent heat_00010         220
+ Interpolating : latent heat_00011         222
+ Interpolating : latent heat_00012         224
+ Interpolating : latent heat_00013         226
+ Interpolating : latent heat_00014         228
+ Interpolating : latent heat_00015         230
+ Interpolating : latent heat_00016         232
+ Interpolating : latent heat_00017         234
+ Interpolating : latent heat_00018         236
+ Interpolating : latent heat_00019         238
+ Interpolating : latent heat_00020         240
+ Interpolating : latent heat_00021         242
+ Interpolating : latent heat_00022         244
+ Interpolating : latent heat_00023         246
+ Interpolating : latent heat_00024         248
+ Interpolating : latent heat_00025         250
+ Reading mslp_WRF fields
+ Interpolating : mslp_WRF_00001         252
+ Interpolating : mslp_WRF_00002         254
+ Interpolating : mslp_WRF_00003         256
+ Interpolating : mslp_WRF_00004         258
+ Interpolating : mslp_WRF_00005         260
+ Interpolating : mslp_WRF_00006         262
+ Interpolating : mslp_WRF_00007         264
+ Interpolating : mslp_WRF_00008         266
+ Interpolating : mslp_WRF_00009         268
+ Interpolating : mslp_WRF_00010         270
+ Interpolating : mslp_WRF_00011         272
+ Interpolating : mslp_WRF_00012         274
+ Interpolating : mslp_WRF_00013         276
+ Interpolating : mslp_WRF_00014         278
+ Interpolating : mslp_WRF_00015         280
+ Interpolating : mslp_WRF_00016         282
+ Interpolating : mslp_WRF_00017         284
+ Interpolating : mslp_WRF_00018         286
+ Interpolating : mslp_WRF_00019         288
+ Interpolating : mslp_WRF_00020         290
+ Interpolating : mslp_WRF_00021         292
+ Interpolating : mslp_WRF_00022         294
+ Interpolating : mslp_WRF_00023         296
+ Interpolating : mslp_WRF_00024         298
+ Interpolating : mslp_WRF_00025         300
+ Reading pbl height fields
+ Interpolating : pbl height_00001         302
+ Interpolating : pbl height_00002         304
+ Interpolating : pbl height_00003         306
+ Interpolating : pbl height_00004         308
+ Interpolating : pbl height_00005         310
+ Interpolating : pbl height_00006         312
+ Interpolating : pbl height_00007         314
+ Interpolating : pbl height_00008         316
+ Interpolating : pbl height_00009         318
+ Interpolating : pbl height_00010         320
+ Interpolating : pbl height_00011         322
+ Interpolating : pbl height_00012         324
+ Interpolating : pbl height_00013         326
+ Interpolating : pbl height_00014         328
+ Interpolating : pbl height_00015         330
+ Interpolating : pbl height_00016         332
+ Interpolating : pbl height_00017         334
+ Interpolating : pbl height_00018         336
+ Interpolating : pbl height_00019         338
+ Interpolating : pbl height_00020         340
+ Interpolating : pbl height_00021         342
+ Interpolating : pbl height_00022         344
+ Interpolating : pbl height_00023         346
+ Interpolating : pbl height_00024         348
+ Interpolating : pbl height_00025         350
+ Reading precipitation fields
+ Interpolating : precipitation_00001         352
+ Interpolating : precipitation_00002         354
+ Interpolating : precipitation_00003         356
+ Interpolating : precipitation_00004         358
+ Interpolating : precipitation_00005         360
+ Interpolating : precipitation_00006         362
+ Interpolating : precipitation_00007         364
+ Interpolating : precipitation_00008         366
+ Interpolating : precipitation_00009         368
+ Interpolating : precipitation_00010         370
+ Interpolating : precipitation_00011         372
+ Interpolating : precipitation_00012         374
+ Interpolating : precipitation_00013         376
+ Interpolating : precipitation_00014         378
+ Interpolating : precipitation_00015         380
+ Interpolating : precipitation_00016         382
+ Interpolating : precipitation_00017         384
+ Interpolating : precipitation_00018         386
+ Interpolating : precipitation_00019         388
+ Interpolating : precipitation_00020         390
+ Interpolating : precipitation_00021         392
+ Interpolating : precipitation_00022         394
+ Interpolating : precipitation_00023         396
+ Interpolating : precipitation_00024         398
+ Interpolating : precipitation_00025         400
+ Reading relative humidity fields
+ Interpolating : relative humidity_00001         402
+ Interpolating : relative humidity_00002         404
+ Interpolating : relative humidity_00003         406
+ Interpolating : relative humidity_00004         408
+ Interpolating : relative humidity_00005         410
+ Interpolating : relative humidity_00006         412
+ Interpolating : relative humidity_00007         414
+ Interpolating : relative humidity_00008         416
+ Interpolating : relative humidity_00009         418
+ Interpolating : relative humidity_00010         420
+ Interpolating : relative humidity_00011         422
+ Interpolating : relative humidity_00012         424
+ Interpolating : relative humidity_00013         426
+ Interpolating : relative humidity_00014         428
+ Interpolating : relative humidity_00015         430
+ Interpolating : relative humidity_00016         432
+ Interpolating : relative humidity_00017         434
+ Interpolating : relative humidity_00018         436
+ Interpolating : relative humidity_00019         438
+ Interpolating : relative humidity_00020         440
+ Interpolating : relative humidity_00021         442
+ Interpolating : relative humidity_00022         444
+ Interpolating : relative humidity_00023         446
+ Interpolating : relative humidity_00024         448
+ Interpolating : relative humidity_00025         450
+ Unknown property: 
+ sea water temperature                                                          
+                                                  
+ Reading sensible heat fields
+ Interpolating : sensible heat_00001         452
+ Interpolating : sensible heat_00002         454
+ Interpolating : sensible heat_00003         456
+ Interpolating : sensible heat_00004         458
+ Interpolating : sensible heat_00005         460
+ Interpolating : sensible heat_00006         462
+ Interpolating : sensible heat_00007         464
+ Interpolating : sensible heat_00008         466
+ Interpolating : sensible heat_00009         468
+ Interpolating : sensible heat_00010         470
+ Interpolating : sensible heat_00011         472
+ Interpolating : sensible heat_00012         474
+ Interpolating : sensible heat_00013         476
+ Interpolating : sensible heat_00014         478
+ Interpolating : sensible heat_00015         480
+ Interpolating : sensible heat_00016         482
+ Interpolating : sensible heat_00017         484
+ Interpolating : sensible heat_00018         486
+ Interpolating : sensible heat_00019         488
+ Interpolating : sensible heat_00020         490
+ Interpolating : sensible heat_00021         492
+ Interpolating : sensible heat_00022         494
+ Interpolating : sensible heat_00023         496
+ Interpolating : sensible heat_00024         498
+ Interpolating : sensible heat_00025         500
+ Reading solar radiation fields
+ Interpolating : solar radiation_00001         502
+ Interpolating : solar radiation_00002         504
+ Interpolating : solar radiation_00003         506
+ Interpolating : solar radiation_00004         508
+ Interpolating : solar radiation_00005         510
+ Interpolating : solar radiation_00006         512
+ Interpolating : solar radiation_00007         514
+ Interpolating : solar radiation_00008         516
+ Interpolating : solar radiation_00009         518
+ Interpolating : solar radiation_00010         520
+ Interpolating : solar radiation_00011         522
+ Interpolating : solar radiation_00012         524
+ Interpolating : solar radiation_00013         526
+ Interpolating : solar radiation_00014         528
+ Interpolating : solar radiation_00015         530
+ Interpolating : solar radiation_00016         532
+ Interpolating : solar radiation_00017         534
+ Interpolating : solar radiation_00018         536
+ Interpolating : solar radiation_00019         538
+ Interpolating : solar radiation_00020         540
+ Interpolating : solar radiation_00021         542
+ Interpolating : solar radiation_00022         544
+ Interpolating : solar radiation_00023         546
+ Interpolating : solar radiation_00024         548
+ Interpolating : solar radiation_00025         550
+ Reading upward long wave radiation fields
+ Interpolating : upward long wave radiation_00001         552
+ Interpolating : upward long wave radiation_00002         554
+ Interpolating : upward long wave radiation_00003         556
+ Interpolating : upward long wave radiation_00004         558
+ Interpolating : upward long wave radiation_00005         560
+ Interpolating : upward long wave radiation_00006         562
+ Interpolating : upward long wave radiation_00007         564
+ Interpolating : upward long wave radiation_00008         566
+ Interpolating : upward long wave radiation_00009         568
+ Interpolating : upward long wave radiation_00010         570
+ Interpolating : upward long wave radiation_00011         572
+ Interpolating : upward long wave radiation_00012         574
+ Interpolating : upward long wave radiation_00013         576
+ Interpolating : upward long wave radiation_00014         578
+ Interpolating : upward long wave radiation_00015         580
+ Interpolating : upward long wave radiation_00016         582
+ Interpolating : upward long wave radiation_00017         584
+ Interpolating : upward long wave radiation_00018         586
+ Interpolating : upward long wave radiation_00019         588
+ Interpolating : upward long wave radiation_00020         590
+ Interpolating : upward long wave radiation_00021         592
+ Interpolating : upward long wave radiation_00022         594
+ Interpolating : upward long wave radiation_00023         596
+ Interpolating : upward long wave radiation_00024         598
+ Interpolating : upward long wave radiation_00025         600
+ Reading wind direction fields
+ Interpolating : wind direction_00001         602
+ Interpolating : wind direction_00002         604
+ Interpolating : wind direction_00003         606
+ Interpolating : wind direction_00004         608
+ Interpolating : wind direction_00005         610
+ Interpolating : wind direction_00006         612
+ Interpolating : wind direction_00007         614
+ Interpolating : wind direction_00008         616
+ Interpolating : wind direction_00009         618
+ Interpolating : wind direction_00010         620
+ Interpolating : wind direction_00011         622
+ Interpolating : wind direction_00012         624
+ Interpolating : wind direction_00013         626
+ Interpolating : wind direction_00014         628
+ Interpolating : wind direction_00015         630
+ Interpolating : wind direction_00016         632
+ Interpolating : wind direction_00017         634
+ Interpolating : wind direction_00018         636
+ Interpolating : wind direction_00019         638
+ Interpolating : wind direction_00020         640
+ Interpolating : wind direction_00021         642
+ Interpolating : wind direction_00022         644
+ Interpolating : wind direction_00023         646
+ Interpolating : wind direction_00024         648
+ Interpolating : wind direction_00025         650
+ Reading wind modulus fields
+ Interpolating : wind modulus_00001         652
+ Interpolating : wind modulus_00002         654
+ Interpolating : wind modulus_00003         656
+ Interpolating : wind modulus_00004         658
+ Interpolating : wind modulus_00005         660
+ Interpolating : wind modulus_00006         662
+ Interpolating : wind modulus_00007         664
+ Interpolating : wind modulus_00008         666
+ Interpolating : wind modulus_00009         668
+ Interpolating : wind modulus_00010         670
+ Interpolating : wind modulus_00011         672
+ Interpolating : wind modulus_00012         674
+ Interpolating : wind modulus_00013         676
+ Interpolating : wind modulus_00014         678
+ Interpolating : wind modulus_00015         680
+ Interpolating : wind modulus_00016         682
+ Interpolating : wind modulus_00017         684
+ Interpolating : wind modulus_00018         686
+ Interpolating : wind modulus_00019         688
+ Interpolating : wind modulus_00020         690
+ Interpolating : wind modulus_00021         692
+ Interpolating : wind modulus_00022         694
+ Interpolating : wind modulus_00023         696
+ Interpolating : wind modulus_00024         698
+ Interpolating : wind modulus_00025         700
+ Reading wind stress X fields
+ Interpolating : wind stress X_00001         702
+ Interpolating : wind stress X_00002         704
+ Interpolating : wind stress X_00003         706
+ Interpolating : wind stress X_00004         708
+ Interpolating : wind stress X_00005         710
+ Interpolating : wind stress X_00006         712
+ Interpolating : wind stress X_00007         714
+ Interpolating : wind stress X_00008         716
+ Interpolating : wind stress X_00009         718
+ Interpolating : wind stress X_00010         720
+ Interpolating : wind stress X_00011         722
+ Interpolating : wind stress X_00012         724
+ Interpolating : wind stress X_00013         726
+ Interpolating : wind stress X_00014         728
+ Interpolating : wind stress X_00015         730
+ Interpolating : wind stress X_00016         732
+ Interpolating : wind stress X_00017         734
+ Interpolating : wind stress X_00018         736
+ Interpolating : wind stress X_00019         738
+ Interpolating : wind stress X_00020         740
+ Interpolating : wind stress X_00021         742
+ Interpolating : wind stress X_00022         744
+ Interpolating : wind stress X_00023         746
+ Interpolating : wind stress X_00024         748
+ Interpolating : wind stress X_00025         750
+ Reading wind stress Y fields
+ Interpolating : wind stress Y_00001         752
+ Interpolating : wind stress Y_00002         754
+ Interpolating : wind stress Y_00003         756
+ Interpolating : wind stress Y_00004         758
+ Interpolating : wind stress Y_00005         760
+ Interpolating : wind stress Y_00006         762
+ Interpolating : wind stress Y_00007         764
+ Interpolating : wind stress Y_00008         766
+ Interpolating : wind stress Y_00009         768
+ Interpolating : wind stress Y_00010         770
+ Interpolating : wind stress Y_00011         772
+ Interpolating : wind stress Y_00012         774
+ Interpolating : wind stress Y_00013         776
+ Interpolating : wind stress Y_00014         778
+ Interpolating : wind stress Y_00015         780
+ Interpolating : wind stress Y_00016         782
+ Interpolating : wind stress Y_00017         784
+ Interpolating : wind stress Y_00018         786
+ Interpolating : wind stress Y_00019         788
+ Interpolating : wind stress Y_00020         790
+ Interpolating : wind stress Y_00021         792
+ Interpolating : wind stress Y_00022         794
+ Interpolating : wind stress Y_00023         796
+ Interpolating : wind stress Y_00024         798
+ Interpolating : wind stress Y_00025         800
+ Reading wind velocity X fields
+ Interpolating : wind velocity X_00001         802
+ Interpolating : wind velocity X_00002         804
+ Interpolating : wind velocity X_00003         806
+ Interpolating : wind velocity X_00004         808
+ Interpolating : wind velocity X_00005         810
+ Interpolating : wind velocity X_00006         812
+ Interpolating : wind velocity X_00007         814
+ Interpolating : wind velocity X_00008         816
+ Interpolating : wind velocity X_00009         818
+ Interpolating : wind velocity X_00010         820
+ Interpolating : wind velocity X_00011         822
+ Interpolating : wind velocity X_00012         824
+ Interpolating : wind velocity X_00013         826
+ Interpolating : wind velocity X_00014         828
+ Interpolating : wind velocity X_00015         830
+ Interpolating : wind velocity X_00016         832
+ Interpolating : wind velocity X_00017         834
+ Interpolating : wind velocity X_00018         836
+ Interpolating : wind velocity X_00019         838
+ Interpolating : wind velocity X_00020         840
+ Interpolating : wind velocity X_00021         842
+ Interpolating : wind velocity X_00022         844
+ Interpolating : wind velocity X_00023         846
+ Interpolating : wind velocity X_00024         848
+ Interpolating : wind velocity X_00025         850
+ Reading wind velocity Y fields
+ Interpolating : wind velocity Y_00001         852
+ Interpolating : wind velocity Y_00002         854
+ Interpolating : wind velocity Y_00003         856
+ Interpolating : wind velocity Y_00004         858
+ Interpolating : wind velocity Y_00005         860
+ Interpolating : wind velocity Y_00006         862
+ Interpolating : wind velocity Y_00007         864
+ Interpolating : wind velocity Y_00008         866
+ Interpolating : wind velocity Y_00009         868
+ Interpolating : wind velocity Y_00010         870
+ Interpolating : wind velocity Y_00011         872
+ Interpolating : wind velocity Y_00012         874
+ Interpolating : wind velocity Y_00013         876
+ Interpolating : wind velocity Y_00014         878
+ Interpolating : wind velocity Y_00015         880
+ Interpolating : wind velocity Y_00016         882
+ Interpolating : wind velocity Y_00017         884
+ Interpolating : wind velocity Y_00018         886
+ Interpolating : wind velocity Y_00019         888
+ Interpolating : wind velocity Y_00020         890
+ Interpolating : wind velocity Y_00021         892
+ Interpolating : wind velocity Y_00022         894
+ Interpolating : wind velocity Y_00023         896
+ Interpolating : wind velocity Y_00024         898
+ Interpolating : wind velocity Y_00025         900
+ Killing father grid...
+ -------------------------- MOHID -------------------------
+ 
+ Program ConvertToHDF5 successfully terminated
+ 
+ 
+ Total Elapsed Time     :          33.60   0h  0min 33s
+
+ Total CPU time         :          30.05
+
+ CPU usage (%)          :          89.43
+
+ 
+ ----------------------------------------------------------
+forrtl: warning (526): IEEE_INVALID is signaling

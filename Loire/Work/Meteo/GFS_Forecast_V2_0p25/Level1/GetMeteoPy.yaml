@@ -1,0 +1,63 @@
+getMeteoPy:
+  # location of your ConvertToHDF5.exe MOHID tool
+  convertToHDF5exe: "../../ConvertToHDF5/ConvertToHDF5.exe"
+  
+  # MOHID bathymetry file of your Water or Land domain
+  bathymetry: "../../../../GeneralData/Bathymetry/Loire_Level1.dat"
+
+  # directory to write the output to
+  outputDirectory: "./History/"
+  # used to write the name of the HDF5 output
+  outputPrefix: "Loire_Level1"
+    
+  # type of interpolation to be used by the ConvertToHDF5 INTERPOLATE GRIDS and
+  # PATCH HDF5 FILES actions, see MOHID documentation
+  # 1 - Bilinear
+  # 2 - Spline2D
+  # 3 - Triangulation
+  # 4 - Average by cell
+  typeOfInterpolation: 3
+
+  # used to find the HDF5 meteo files to copy
+  # given just 1 model it will use ConvertToHDF5's INTERPOLATE GRIDS action
+  # if more than 1 model is given it will use ConvertToHDF5's PATCH HDF5 FILES action
+  meteoModels:
+    GFS_0p25:
+      
+      # location of your files, files inside subdirectories will be found
+      meteoDirectory: "//MWDATA/Storage01/Meteo/GFS/Forecast/Extract/"
+      
+      # naming convenction of your files
+      # dates are given using python datetime standards, see:
+      # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+      # if 2 sets of dates are given in the meteoFileFormat it's assumed to be the START and END of the file
+      meteoFileFormat: "Gfs_0p25_%Y%m%d%H_%Y%m%d%H.hdf5"
+      
+      # MOHID bathymetry of your metereology domain
+      meteoDatFile: "./GFS_0p25.dat"
+  
+  # use the keyword propertiesToInterpolate if you don't want to
+  # interpolate all of the properties present in the metereology files
+  propertiesToInterpolate:
+    - "air temperature"
+    - "downward long wave radiation"
+    - "mean sea level pressure"
+    - "precipitation"
+    - "relative humidity"
+    - "solar radiation"
+    - "wind velocity X"
+    - "wind velocity Y"
+    - "wind modulus"
+
+ # if you want to pass MOHID keywords to the ConvertToHDF5 actions use the mohidKeywords
+ # keyword followed by the name of the action and the desired MOHID keywords
+  #mohidKeywords:
+    #GLUES HDF5 FILES:
+      #BASE_GROUP: "Results"
+      #TIME_GROUP: "Time"
+    #INTERPOLATE GRIDS:
+      #COORD_TIP: 4
+      #HALOPOINTS: 3
+    #PATCH HDF5 FILES:
+      #COORD_TIP: 4
+      #HALOPOINTS: 3
