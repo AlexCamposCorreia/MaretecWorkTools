@@ -3,7 +3,7 @@ import os
 from datetime import datetime, timedelta
 
 
-def remove_hdf5_startup_hours(file_path, hours_to_remove):
+def remove_hdf5_startup_instants(file_path, seconds_to_remove):
     f = h5py.File(file_path, 'r+')
 
     time_strings = list(f['Time'].keys())
@@ -12,7 +12,7 @@ def remove_hdf5_startup_hours(file_path, hours_to_remove):
         time_datetimes.append([int(x) for x in list(f['Time'][k])])
     time_datetimes = [datetime(x[0], x[1], x[2], x[3], x[4], x[5]) for x in time_datetimes]
 
-    last_time_to_keep = time_datetimes[0] + timedelta(hours=hours_to_remove)
+    last_time_to_keep = time_datetimes[0] + timedelta(seconds=seconds_to_remove)
 
     indexes_to_delete = []
     for time_str, time_date in zip(time_strings, time_datetimes):

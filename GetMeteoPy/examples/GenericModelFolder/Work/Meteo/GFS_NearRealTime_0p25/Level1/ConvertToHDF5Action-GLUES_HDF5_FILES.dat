@@ -1,0 +1,16 @@
+<begin_file>
+
+! Written by GetMeteoPy
+ACTION                        : GLUES HDF5 FILES
+OUTPUTFILENAME                : GFS.hdf5
+
+START                         : 2020 01 01 00 00 00
+END                           : 2020 01 03 00 00 00
+
+<<begin_list>>
+Gfs_0p25_2019123106_2020010103.hdf5
+Gfs_0p25_2020010106_2020010203.hdf5
+Gfs_0p25_2020010206_2020010303.hdf5
+<<end_list>>
+
+<end_file>

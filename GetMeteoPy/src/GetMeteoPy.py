@@ -38,29 +38,29 @@ def get_start_and_end(path):
 
 
 def check_existing_file(yaml, start, end):
-    return os.path.isfile('./History/'+yaml['getMeteoPy']['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
+    return os.path.isfile('./History/'+yaml['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
 
 
 def copy_meteo_files(yaml, meteoModel, start, end):
     # copies meteo hdf5 files in the format ModelName_YYYYMMDDHH_YYYYMMDDHH.hdf5
     print('Searching for files for model ' + meteoModel)
-    if 'meteoRemoveStartupHours' in yaml['getMeteoPy']['meteoModels'][meteoModel].keys():
-        meteoRemoveStartupHours = yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoRemoveStartupHours']
-        print('meteoRemoveStartupHours keyword active and set to ' + str(meteoRemoveStartupHours) + ' hours')
+    if 'meteoRemoveStartupSeconds' in yaml['meteoModels'][meteoModel].keys():
+        meteoRemoveStartupSeconds = yaml['meteoModels'][meteoModel]['meteoRemoveStartupSeconds']
+        print('meteoRemoveStartupSeconds keyword active and set to ' + str(meteoRemoveStartupSeconds) + ' seconds')
     else:
-        meteoRemoveStartupHours = 0
+        meteoRemoveStartupSeconds = 0
 
     files_in_range = []
-    meteoFileFormat = yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoFileFormat']
+    meteoFileFormat = yaml['meteoModels'][meteoModel]['meteoFileFormat']
     if meteoFileFormat.count('%Y') == 1:
-        for root, dirs, files in os.walk(yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoDirectory']):
+        for root, dirs, files in os.walk(yaml['meteoModels'][meteoModel]['meteoDirectory']):
             for f in files:
                 try:
-                    file_date_start = datetime.strptime(f, yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoFileFormat'])
+                    file_date_start = datetime.strptime(f, yaml['meteoModels'][meteoModel]['meteoFileFormat'])
                 except ValueError:
                     #print('File: ' + f + ' does not fit the FileFormat specified of: ' + meteoFileFormat + ', ignoring.')
                     continue
-                file_dates = [file_date_start, file_date_start + timedelta(hours=yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoFileHours'])]
+                file_dates = [file_date_start, file_date_start + timedelta(seconds=yaml['meteoModels'][meteoModel]['meteoFileTotalSeconds'])]
                 if file_dates[1] < start or end < file_dates[0]:
                     continue
                 else:
@@ -86,7 +86,7 @@ def copy_meteo_files(yaml, meteoModel, start, end):
             index += 1
         file_name_example = [datetime(2000, 1, 1).strftime(x) for x in file_name]
         file_name_length = [len(x) for x in file_name_example]
-        for root, dirs, files in os.walk(yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoDirectory']):
+        for root, dirs, files in os.walk(yaml['meteoModels'][meteoModel]['meteoDirectory']):
                 for f in files:
                     file_split = [f[:file_name_length[0]], f[-file_name_length[1]:]]
                     try:
@@ -100,13 +100,17 @@ def copy_meteo_files(yaml, meteoModel, start, end):
                         files_in_range.append([os.path.join(root, f), file_dates[0], file_dates[1]])
     files_in_range = sorted(files_in_range)
 
+    if files_in_range == []:
+        print('\n--- ERROR ---\nNo files with the specified name or date range were found in ' + yaml['meteoModels'][meteoModel]['meteoDirectory'])
+        exit(1)
+
     print('Files found with data in the requested time range:')
     for f in files_in_range: print('-', f[0])
 
-    if meteoRemoveStartupHours > 0:
+    if meteoRemoveStartupSeconds > 0:
         i = 0
         for _ in files_in_range:
-            files_in_range[i][1] = files_in_range[i][1] + timedelta(hours=meteoRemoveStartupHours)
+            files_in_range[i][1] = files_in_range[i][1] + timedelta(seconds=meteoRemoveStartupSeconds)
             i += 1
 
     files_with_everything_inside = []
@@ -136,11 +140,11 @@ def copy_meteo_files(yaml, meteoModel, start, end):
         copy2(file_to_copy, os.path.basename(file_to_copy))
         files_copied.append(os.path.basename(file_to_copy))
 
-    if meteoRemoveStartupHours > 0:
-        print('Removing requested startup hours for files:')
+    if meteoRemoveStartupSeconds > 0:
+        print('Removing requested startup instants for files:')
         for f in files_copied:
             print('-', f)
-            utils.remove_hdf5_startup_hours(f, meteoRemoveStartupHours)
+            utils.remove_hdf5_startup_instants(f, meteoRemoveStartupSeconds)
 
     return files_copied
 
@@ -162,11 +166,11 @@ def write_ConvertToHDF5Action_glue(yaml, meteoModel, start, end, files_to_glue):
             f.write(hdf5_file+'\n')
         f.write('<<end_list>>\n')
         f.write('\n')
-        if ('mohidKeywords' in yaml['getMeteoPy'].keys()) and ('GLUES HDF5 FILES' in yaml['getMeteoPy']['mohidKeywords'].keys()):
+        if ('mohidKeywords' in yaml.keys()) and ('GLUES HDF5 FILES' in yaml['mohidKeywords'].keys()):
             f.write('! Additional keywords\n')
-            for keyword in yaml['getMeteoPy']['mohidKeywords']['GLUES HDF5 FILES'].keys():
-                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['getMeteoPy']['mohidKeywords']['GLUES HDF5 FILES'][keyword] + '\n'))
-                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['getMeteoPy']['GLUES HDF5 FILES']['mohidKeywords'][keyword]) + '\n'))
+            for keyword in yaml['mohidKeywords']['GLUES HDF5 FILES'].keys():
+                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['mohidKeywords']['GLUES HDF5 FILES'][keyword] + '\n'))
+                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['GLUES HDF5 FILES']['mohidKeywords'][keyword]) + '\n'))
             f.write('\n')
         f.write('<end_file>\n')
     copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-GLUES_HDF5_FILES.dat')
@@ -179,30 +183,30 @@ def write_ConvertToHDF5Action_interpolate(yaml, start, end):
         f.write('\n')
         f.write('! Written by GetMeteoPy\n')
         f.write('{0:30}{1}'.format('ACTION', ': ' + 'INTERPOLATE GRIDS' + '\n'))
-        f.write('{0:30}{1}'.format('TYPE_OF_INTERPOLATION', ': ' + str(yaml['getMeteoPy']['typeOfInterpolation']) + '\n'))
+        f.write('{0:30}{1}'.format('TYPE_OF_INTERPOLATION', ': ' + str(yaml['typeOfInterpolation']) + '\n'))
         f.write('\n')
         f.write('{0:30}{1}'.format('START', ': ' + datetime.strftime(start, '%Y %m %d %H %M %S') + '\n'))
         f.write('{0:30}{1}'.format('END', ': ' + datetime.strftime(end, '%Y %m %d %H %M %S') + '\n'))
         f.write('\n')
         f.write('{0:30}{1}'.format('OUTPUTFILENAME', ': ' +
-                yaml['getMeteoPy']['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5' + '\n'))
-        f.write('{0:30}{1}'.format('NEW_GRID_FILENAME', ': ' + yaml['getMeteoPy']['bathymetry'] + '\n'))
+                yaml['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5' + '\n'))
+        f.write('{0:30}{1}'.format('NEW_GRID_FILENAME', ': ' + yaml['bathymetry'] + '\n'))
         f.write('\n')
-        for meteoModel in yaml['getMeteoPy']['meteoModels'].keys():
+        for meteoModel in yaml['meteoModels'].keys():
             f.write('{0:30}{1}'.format('FATHER_FILENAME', ': ' + meteoModel + '.hdf5' + '\n'))
-            f.write('{0:30}{1}'.format('FATHER_GRID_FILENAME', ': ' + yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoDatFile'] + '\n'))
+            f.write('{0:30}{1}'.format('FATHER_GRID_FILENAME', ': ' + yaml['meteoModels'][meteoModel]['meteoDatFile'] + '\n'))
         f.write('\n')
-        if 'propertiesToInterpolate' in yaml['getMeteoPy'].keys():
+        if 'propertiesToInterpolate' in yaml.keys():
             f.write('<<BeginFields>>\n')
-            for p in yaml['getMeteoPy']['propertiesToInterpolate']:
+            for p in yaml['propertiesToInterpolate']:
                 f.write(p+'\n')
             f.write('<<EndFields>>\n')
             f.write('\n')
-        if ('mohidKeywords' in yaml['getMeteoPy'].keys()) and ('INTERPOLATE GRIDS' in yaml['getMeteoPy']['mohidKeywords'].keys()):
+        if ('mohidKeywords' in yaml.keys()) and ('INTERPOLATE GRIDS' in yaml['mohidKeywords'].keys()):
             f.write('! Additional keywords\n')
-            for keyword in yaml['getMeteoPy']['mohidKeywords']['INTERPOLATE GRIDS'].keys():
-                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['getMeteoPy']['mohidKeywords']['INTERPOLATE GRIDS'][keyword] + '\n'))
-                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['getMeteoPy']['mohidKeywords']['INTERPOLATE GRIDS'][keyword]) + '\n'))
+            for keyword in yaml['mohidKeywords']['INTERPOLATE GRIDS'].keys():
+                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['mohidKeywords']['INTERPOLATE GRIDS'][keyword] + '\n'))
+                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['mohidKeywords']['INTERPOLATE GRIDS'][keyword]) + '\n'))
             f.write('\n')
         f.write('<end_file>\n')
     copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-INTERPOLATE_GRIDS.dat')
@@ -215,44 +219,55 @@ def write_ConvertToHDF5Action_patch(yaml, start, end):
         f.write('\n')
         f.write('! Written by GetMeteoPy\n')
         f.write('{0:30}{1}'.format('ACTION', ': ' + 'PATCH HDF5 FILES' + '\n'))
-        f.write('{0:30}{1}'.format('TYPE_OF_INTERPOLATION', ': ' + str(yaml['getMeteoPy']['typeOfInterpolation']) + '\n'))
+        f.write('{0:30}{1}'.format('TYPE_OF_INTERPOLATION', ': ' + str(yaml['typeOfInterpolation']) + '\n'))
         f.write('\n')
         f.write('{0:30}{1}'.format('START', ': ' + datetime.strftime(start, '%Y %m %d %H %M %S') + '\n'))
         f.write('{0:30}{1}'.format('END', ': ' + datetime.strftime(end, '%Y %m %d %H %M %S') + '\n'))
         f.write('\n')
         f.write('{0:30}{1}'.format('OUTPUTFILENAME', ': ' +
-                yaml['getMeteoPy']['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5' + '\n'))
-        f.write('{0:30}{1}'.format('NEW_GRID_FILENAME', ': ' + yaml['getMeteoPy']['bathymetry'] + '\n'))
+                yaml['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5' + '\n'))
+        f.write('{0:30}{1}'.format('NEW_GRID_FILENAME', ': ' + yaml['bathymetry'] + '\n'))
         f.write('\n')
-        for meteoModel in yaml['getMeteoPy']['meteoModels'].keys():
+        for meteoModel in yaml['meteoModels'].keys():
             f.write('<<begin_father>>\n')
             f.write('{0:30}{1}'.format('FATHER_FILENAME', ': ' + meteoModel + '.hdf5' + '\n'))
-            f.write('{0:30}{1}'.format('FATHER_GRID_FILENAME', ': ' + yaml['getMeteoPy']['meteoModels'][meteoModel]['meteoDatFile'] + '\n'))
-            f.write('{0:30}{1}'.format('LEVEL', ': ' + str(yaml['getMeteoPy']['meteoModels'][meteoModel]['level']) + '\n'))
+            f.write('{0:30}{1}'.format('FATHER_GRID_FILENAME', ': ' + yaml['meteoModels'][meteoModel]['meteoDatFile'] + '\n'))
+            f.write('{0:30}{1}'.format('LEVEL', ': ' + str(yaml['meteoModels'][meteoModel]['level']) + '\n'))
             f.write('<<end_father>>\n\n')
-        if 'propertiesToInterpolate' in yaml['getMeteoPy'].keys():
+        if 'propertiesToInterpolate' in yaml.keys():
             f.write('<<BeginFields>>\n')
-            for p in yaml['getMeteoPy']['propertiesToInterpolate']:
+            for p in yaml['propertiesToInterpolate']:
                 f.write(p+'\n')
             f.write('<<EndFields>>\n')
             f.write('\n')
-        if ('mohidKeywords' in yaml['getMeteoPy'].keys()) and ('PATCH HDF5 FILES' in yaml['getMeteoPy']['mohidKeywords'].keys()):
+        if ('mohidKeywords' in yaml.keys()) and ('PATCH HDF5 FILES' in yaml['mohidKeywords'].keys()):
             f.write('! Additional keywords\n')
-            for keyword in yaml['getMeteoPy']['mohidKeywords']['PATCH HDF5 FILES'].keys():
-                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['getMeteoPy']['mohidKeywords']['PATCH HDF5 FILES'][keyword] + '\n'))
-                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['getMeteoPy']['mohidKeywords']['PATCH HDF5 FILES'][keyword]) + '\n'))
+            for keyword in yaml['mohidKeywords']['PATCH HDF5 FILES'].keys():
+                try: f.write('{0:30}{1}'.format(keyword, ': ' + yaml['mohidKeywords']['PATCH HDF5 FILES'][keyword] + '\n'))
+                except TypeError: f.write('{0:30}{1}'.format(keyword, ': ' + str(yaml['mohidKeywords']['PATCH HDF5 FILES'][keyword]) + '\n'))
             f.write('\n')
         f.write('<end_file>\n')
     copy2('./ConvertToHDF5Action.dat', './ConvertToHDF5Action-PATCH_HDF5_FILES.dat')
 
 
+def check_ConvertToHDF5Action_sucess(filename):
+    with open(filename, 'r') as f:
+        last_lines = f.readlines()[-40:]
+
+    for l in last_lines:
+        if l.find('ConvertToHDF5 successfully terminated') != -1:
+            return
+    print('\n--- ERROR ---\nConvertToHDF5.exe was not sucessfull\nCheck ' + filename + ' for more information')
+    exit(1)
+
+
 def move_interpolated_hdf5_to_History_folder(yaml, start, end):
-    move(yaml['getMeteoPy']['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5',
-        yaml['getMeteoPy']['outputDirectory']+yaml['getMeteoPy']['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
+    move(yaml['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5',
+        yaml['outputDirectory']+yaml['outputPrefix']+'_'+datetime.strftime(start, '%Y-%m-%d')+'_'+datetime.strftime(end, '%Y-%m-%d')+'.hdf5')
 
 
 def delete_copied_and_created_files(yaml, hdf5_files_to_delete):
-    for meteoModel in yaml['getMeteoPy']['meteoModels'].keys():
+    for meteoModel in yaml['meteoModels'].keys():
         try:
             os.remove(meteoModel + '.hdf5')
         except FileNotFoundError:
@@ -278,33 +293,37 @@ def main():
 
     hdf5_files_to_delete = []
     # copy and glue
-    for meteoModel in yaml['getMeteoPy']['meteoModels'].keys():
+    for meteoModel in yaml['meteoModels'].keys():
         hdf5_files_copied = copy_meteo_files(yaml, meteoModel, start, end)
         hdf5_files_to_delete += hdf5_files_copied
         if len(hdf5_files_copied) == 1:
             move(hdf5_files_copied[0], meteoModel + '.hdf5')
         elif len(hdf5_files_copied) >1:
             write_ConvertToHDF5Action_glue(yaml, meteoModel, start, end, hdf5_files_copied)
-            with open('glue_log.txt', 'w') as logfile:
+            with open('ConvertToHDF5Action-GLUES_HDF5_FILES.log', 'w') as logfile:
                 print('Running ConvertToHDF5.exe')
-                p = subprocess.Popen(yaml['getMeteoPy']['convertToHDF5exe'], stdout=logfile, stderr=logfile)
+                p = subprocess.Popen(yaml['convertToHDF5exe'], stdout=logfile, stderr=logfile)
                 p.wait()
+            check_ConvertToHDF5Action_sucess('ConvertToHDF5Action-GLUES_HDF5_FILES.log')
     
     # interpolate
-    if len(yaml['getMeteoPy']['meteoModels'].keys()) == 1:
+    if len(yaml['meteoModels'].keys()) == 1:
         write_ConvertToHDF5Action_interpolate(yaml, start, end)
-        with open('interpolation_log.txt', 'w') as logfile:
+        with open('ConvertToHDF5Action-INTERPOLATE_GRIDS.log', 'w') as logfile:
             print('Running ConvertToHDF5.exe')
-            p = subprocess.Popen(yaml['getMeteoPy']['convertToHDF5exe'], stdout=logfile, stderr=logfile)
+            p = subprocess.Popen(yaml['convertToHDF5exe'], stdout=logfile, stderr=logfile)
             p.wait()
+        check_ConvertToHDF5Action_sucess('ConvertToHDF5Action-INTERPOLATE_GRIDS.log')
+        print('Moving file to output directory')
         move_interpolated_hdf5_to_History_folder(yaml, start, end)
     # patch
-    elif len(yaml['getMeteoPy']['meteoModels'].keys()) > 1:
+    elif len(yaml['meteoModels'].keys()) > 1:
         write_ConvertToHDF5Action_patch(yaml, start, end)
-        with open('patch_log.txt', 'w') as logfile:
+        with open('ConvertToHDF5Action-PATCH_HF5_FILES.log', 'w') as logfile:
             print('Running ConvertToHDF5.exe')
-            p = subprocess.Popen(yaml['getMeteoPy']['convertToHDF5exe'], stdout=logfile, stderr=logfile)
+            p = subprocess.Popen(yaml['convertToHDF5exe'], stdout=logfile, stderr=logfile)
             p.wait()
+        check_ConvertToHDF5Action_sucess('ConvertToHDF5Action-PATCH_HF5_FILES.log')
         print('Moving file to output directory')
         move_interpolated_hdf5_to_History_folder(yaml, start, end)
     # cleanup

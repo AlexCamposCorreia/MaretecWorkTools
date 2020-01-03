@@ -1,0 +1,16 @@
+<begin_file>
+
+! Written by GetMeteoPy
+ACTION                        : GLUES HDF5 FILES
+OUTPUTFILENAME                : IPMA.hdf5
+
+START                         : 2020 01 01 01 00 00
+END                           : 2020 01 02 00 00 00
+
+<<begin_list>>
+IPMA_Portugal_2020-01-01_00h.hdf5
+IPMA_Portugal_2020-01-01_12h.hdf5
+IPMA_Portugal_2020-01-02_00h.hdf5
+<<end_list>>
+
+<end_file>

@@ -1,0 +1,36 @@
+ -------------------------- MOHID -------------------------
+ 
+       AUTHOR   : IST/MARETEC, Marine Modelling Group      
+       WWW      : http://www.mohid.com
+ 
+ 
+ Copyright (C) 1985, 1998, 2002, 2006.
+ Instituto Superior Tecnico, Technical University of Lisbon
+ -------------------------- MOHID -------------------------
+ 
+ Constructing ConvertToHDF5
+ Please Wait...
+ 
+ Running ConvertToHDF5...
+ 
+ No error message
+ Data File does not exists : nomfich.dat
+ INTERPOLATE GRIDS                                                              
+                                                  
+ Reading instructions...
+ 
+ Type of interpolation : Triangulation
+ 
+ Constructing father grid...
+ Constructing new grid...
+ Constructing communication between grids...
+ Number of instants in available data:           36
+ Reading air temperature fields
+ Interpolating : air temperature_00001           2
+ Interpolating : air temperature_00002           4
+forrtl: error (200): program aborting due to control-C event
+Image              PC                Routine            Line        Source             
+ConvertToHDF5.exe  00007FF6C4651298  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFF611E5FD3  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFF62E77BD4  Unknown               Unknown  Unknown
+ntdll.dll          00007FFF63FECED1  Unknown               Unknown  Unknown
