@@ -13,9 +13,10 @@ Python script to download, glue, and interpolate metereological model data in hd
 - `GetMeteoPy.dat` file with START and END dates in YYYY MM DD HH MM SS format
 - `GetMeteoPy.yaml` file with the desired settings
 
-
 ## How does it work
-GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) or the action [PATCH HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#PATCH_HDF5_FILES) to interpolate the results to the MOHID model bathymetry
+GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 file. After, it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) or the action [PATCH HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#PATCH_HDF5_FILES) to interpolate the results to the MOHID model bathymetry.
+
+---
 
 ## Keywords
 ### List of keywords used in the `GetMeteoPy.yaml` file:
@@ -47,7 +48,7 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
   - `PATCH HDF5 FILES`:
     - `...`:`"..."`
 
-
+---
 ## Example usage:
 `GetMeteoPy.dat` file:
 ```yaml
