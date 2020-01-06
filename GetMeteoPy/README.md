@@ -5,27 +5,32 @@ Python script to download, glue, and interpolate metereological model data in hd
 ## Requirements
 ### Software:
 - a python 3 distribution
-- [PyYAML](https://pyyaml.org/) library
+- PyYAML library ([pip](https://pypi.org/project/PyYAML/), [conda](https://anaconda.org/conda-forge/pyyaml))
+- h5py ([pip](https://pypi.org/project/h5py/), [conda](https://anaconda.org/conda-forge/h5py))
 - ConvertToHDF5 tool from [MOHID](https://github.com/Mohid-Water-Modelling-System/Mohid)
 
 ### File requirements:
 - `GetMeteoPy.dat` file with START and END dates in YYYY MM DD HH MM SS format
 - `GetMeteoPy.yaml` file with the desired settings
-- `History` folder on the same directory that GetMeteoPy.py is called on
 
 
 ## How does it work
-GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) to interpolate the results to the MOHID model bathymetry
+GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#GLUES_HDF5_FILES) to glue the meteo hdf5 files, then it uses the action [INTERPOLATE GRIDS](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS) or the action [PATCH HDF5 FILES](http://wiki.mohid.com/index.php?title=ConvertToHDF5#PATCH_HDF5_FILES) to interpolate the results to the MOHID model bathymetry
+
 ## Keywords
 ### List of keywords used in the `GetMeteoPy.yaml` file:
-- `getMeteoPy`
-  - `dontRunIfFileExists`: (0/1) if file already exists, doesn't run
-  - `meteoModel`: (string) name of the meteo model, will be used to write the output file name
-  - `meteoDirectory`: (string) location of the directory containing the hdf5 meteo files
-  - `meteoName`: (string) prefix of the meteo hdf5 files
-  - `domainName`: (string) domain name of the MOHID model, will be used to write the output file name
-  - `bathymetry`: (string) location of the MOHID model domain bathymetry
-  - `propertiesToInterpolate`: (python or yaml list) list of all the properties to interpolate
+- `convertToHDF5exe`: (string) location of the ConvertToHDF5 tool
+- `bathymetry`: (string) location of the bathymetry of your MOHID Water or Land domain
+- `typeOfInterpolation`: (integer)(1,2,3 or 4) option of interpolation used by the INTERPOLATE GRIDS and PATCH HDF5 FILES actions, see the [MOHID documentation](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS)
+- `outputDirectory`: (string) directory to save the output of the program
+- `outputPrefix`: (string) used to write the name of the HDF5 output file
+- `meteoModels`
+  - `name1`
+    - `meteoDirectory`
+    - `meteoFileFormat`
+    - `meteoDatFile`
+
+
 
 
 ## Example usage:
