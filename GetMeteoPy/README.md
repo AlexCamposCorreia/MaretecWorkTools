@@ -6,7 +6,7 @@ Python script to download, glue, and interpolate metereological model data in hd
 ### Software:
 - a python 3 distribution
 - PyYAML library ([pip](https://pypi.org/project/PyYAML/), [conda](https://anaconda.org/conda-forge/pyyaml))
-- h5py ([pip](https://pypi.org/project/h5py/), [conda](https://anaconda.org/conda-forge/h5py))
+- h5py library ([pip](https://pypi.org/project/h5py/), [conda](https://anaconda.org/conda-forge/h5py))
 - ConvertToHDF5 tool from [MOHID](https://github.com/Mohid-Water-Modelling-System/Mohid)
 
 ### File requirements:
