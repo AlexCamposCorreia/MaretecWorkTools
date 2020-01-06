@@ -40,12 +40,12 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
   - `...`
   - `...`
 - `mohidKeywords`:
-  -`GLUES HDF5 FILES`:
-    -`...`: `...`
-  -`INTERPOLATE GRIDS`:
-    -`...`: `...`
-  -`PATCH HDF5 FILES`:
-    -`...`: `...`
+  - `GLUES HDF5 FILES`:
+    - `...`: `...`
+  - `INTERPOLATE GRIDS`:
+    - `...`: `...`
+  - `PATCH HDF5 FILES`:
+    - `...`: `...`
 
 
 ## Example usage:
