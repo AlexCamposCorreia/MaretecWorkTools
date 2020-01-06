@@ -51,86 +51,41 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
 ## Example usage:
 `GetMeteoPy.dat` file:
 ```yaml
-START:                       2019 09 01 00 00 00
-END:                         2019 09 02 00 00 00
+START:                       2019 01 01 00 00 00
+END:                         2019 01 02 00 00 00
 ```
 
 `GetMeteoPy.yaml` file:
 ```yaml
-getMeteoPy:
-  dontRunIfFileExists: 1
-  meteoModel: "MM5"
-  meteoDirectory: "//MWDATA/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
-  meteoName: "D3"
-  domainName: "Sines1"
-  bathymetry: "../../../../GeneralData/Bathymetry/Bathymetry_Sines1.dat"
-  propertiesToInterpolate:
-    - "air temperature"
-    - "albedo"
-    - "downward long wave radiation"
-    - "mean sea level pressure"
-    - "pbl height"
-    - "precipitation"
-    - "relative humidity"
-    - "solar radiation"
-    - "wind velocity X"
-    - "wind velocity Y"
-```
+convertToHDF5exe: "./ConvertToHDF5.exe"
 
-GLUES HDF5 FILE action:
-```
-<begin_file>
+bathymetry: "../../GeneralData/Bathymetry/Generic_Bathymetry.dat"
 
-ACTION                        : GLUES HDF5 FILES
-OUTPUTFILENAME                : D3.hdf5
+typeOfInterpolation: 3
 
-START                         : 2019 09 01 00 00 00
-END                           : 2019 09 02 00 00 00
+outputDirectory: "./History/"
+outputPrefix: "GenericName"
 
-<<begin_list>>
-D3_2019083119_2019090100.hdf5
-D3_2019090101_2019090106.hdf5
-D3_2019090107_2019090112.hdf5
-D3_2019090113_2019090118.hdf5
-D3_2019090119_2019090200.hdf5
-<<end_list>>
+meteoModels:
+  MM5:
+    meteoDirectory: "//mwdata/Storage01/Meteo/MM5/MM5_D2_D3_6h/"
+    meteoFileFormat: "D3_%Y%m%d%H_%Y%m%d%H.hdf5"
+    meteoDatFile: "./D3.dat"
 
-<end_file>
-```
+propertiesToInterpolate:
+  - "air temperature"
+  - "wind velocity X"
+  - "wind velocity Y"
 
-INTERPOLATE GRIDS action:
-```
-<begin_file>
-
-ACTION                        : INTERPOLATE GRIDS
-TYPE_OF_INTERPOLATION         : 3
-OUTPUTFILENAME                : MM5_Sines1_2019-09-01_2019-09-02.hdf5
-NEW_GRID_FILENAME             : ../../../../GeneralData/Bathymetry/Bathymetry_Sines1.dat
-
-START                         : 2019 09 01 00 00 00
-END                           : 2019 09 02 00 00 00
-
-<<begin_father>>
-FATHER_FILENAME               : D3.hdf5
-FATHER_GRID_FILENAME          : D3.dat
-<<end_father>>
-
-<<BeginFields>>
-air temperature
-albedo
-downward long wave radiation
-mean sea level pressure
-pbl height
-precipitation
-relative humidity
-solar radiation
-wind velocity X
-wind velocity Y
-<<EndFields>>
-
-<end_file>
+mohidKeywords:
+  GLUES HDF5 FILES:
+    BASE_GROUP: "Results"
+    TIME_GROUP: "Time"
+  INTERPOLATE GRIDS:
+    DO_NOT_BELIEVE_MAP: 1
+    COORD_TIP: 3
 ```
 
 Output:
 
-`MM5_Sines1_2019-09-01_2019-09-02.hdf5`
+`./History/GenericName_2019-01-01_2019-01-02.hdf5`
