@@ -30,7 +30,7 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
     - `meteoDirectory`: `(string)` directory where your metereologic HDF5 files are stored, program will search inside subdirectories
     - `meteoFileFormat`: `(string)` name of the files to be searched in the directory, dates are specified using [python datetime string codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) at least year, month and day are expected. Given 2 sets of dates it's assumed to be the start and end of the HDF5 file. Given just 1 date it's assumed to be the start of the HDF5 file.
     - `meteoFileTotalSeconds`: `(integer)` if given just 1 date in `meteoFileFormat` it's necessary to give the number of sconds between the final and first instant of the HDF5 file.
-    - `meteoRemoveStartupSeconds`: `(integer)``(optional)` if your HDF5 files contains startup instant that you don't want to use, use this keyword with the amount of time in seconds to be discarded counting from the begining of the files.
+    - `meteoRemoveStartupSeconds`: `(integer)` `(optional)` if your HDF5 files contains startup instant that you don't want to use, use this keyword with the amount of time in seconds to be discarded counting from the begining of the files.
     - `meteoDatFile`: `(string)` location of the bathymetry file of your metereologic model
     - `level`: `(integer)` if given more than 1 metereologic model use this keyword to specify the priority (smaller numbers are higher priority)
   - `modelName2`
