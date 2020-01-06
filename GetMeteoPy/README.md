@@ -24,6 +24,7 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
 - `typeOfInterpolation`: (integer)(1,2,3 or 4) option of interpolation used by the INTERPOLATE GRIDS and PATCH HDF5 FILES actions, see the [MOHID documentation](http://wiki.mohid.com/index.php?title=ConvertToHDF5#INTERPOLATE_GRIDS)
 - `outputDirectory`: (string) directory to save the output of the program
 - `outputPrefix`: (string) used to write the name of the HDF5 output file
+
 - `meteoModels`: block of metereologic models to be used in the interpolation
   - `modelName1`: block of the first metereologic model, name is arbitrary but duplicates are not allowed
     - `meteoDirectory`: (string) directory where your metereologic HDF5 files are stored, program will search inside subdirectories
@@ -35,6 +36,16 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
   - `modelName2`
     - `...`
     - `...`
+- `propertiesToInterpolate`: (optional) if you don't want to interpolate all the properties present in the metereologic HDF5 files use this block with a list of properties to interpolate.
+  - `...`
+  - `...`
+- `mohidKeywords`:
+  -`GLUES HDF5 FILES`:
+    -`...`: `...`
+  -`INTERPOLATE GRIDS`:
+    -`...`: `...`
+  -`PATCH HDF5 FILES`:
+    -`...`: `...`
 
 
 ## Example usage:
