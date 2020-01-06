@@ -37,10 +37,10 @@ GetMeteoPy uses the ConvertToHDF5 MOHID tool with the action [GLUES HDF5 FILES](
   - `modelName2`
     - `...`:`"..."`
     - `...`:`"..."`
-- `propertiesToInterpolate`: (optional) if you don't want to interpolate all the properties present in the metereologic HDF5 files use this block with a list of properties to interpolate.
+- `propertiesToInterpolate`: `(optional)` if you don't want to interpolate all the properties present in the metereologic HDF5 files use this block with a list of properties to interpolate.
   - `"..."`
   - `"..."`
-- `mohidKeywords`:
+- `mohidKeywords`: `(optional)`
   - `GLUES HDF5 FILES`:
     - `...`:`"..."`
   - `INTERPOLATE GRIDS`:
