@@ -1,11 +1,10 @@
-START                         : 2019 11 07 0 0 0
-END                           : 2019 11 10 0 0 0
+START                         : 2020 01 01 0 0 0
+END                           : 2020 01 08 0 0 0
 
 FTP_HOST                      : nrt.cmems-du.eu
-FTP_DIR                       : /Core/IBI_ANALYSIS_FORECAST_PHYS_005_001/dataset-ibi-analysis-forecast-phys-005-001-hourly/
-
-OUTPUT_DIR                    : ../../CMEMS_IBI_HOURLY/
+!FTP_DIR                       : /Core/IBI_ANALYSIS_FORECAST_PHYS_005_001/dataset-ibi-analysis-forecast-phys-005-001-hourly/
+FTP_DIR                       : /Core/IBI_ANALYSIS_FORECAST_PHYS_005_001/dataset-ibi-analysis-forecast-phys-005-001-hourly3d/
+OUTPUT_DIR                    : ./
 
 COPERNICUS_USERNAME           : acorreia2
 COPERNICUS_PASSWORD           : Maretec2004#
-
