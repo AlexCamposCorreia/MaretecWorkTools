@@ -1,0 +1,21 @@
+START                         : 2020 01 20 0 0 0
+END                           : 2020 01 23 0 0 0
+
+! FTP_USERNAME                  : acorreia2
+! FTP_PASSWORD                  : Maretec2004#
+
+
+FTP_HOST                      : ftp.ifremer.fr
+FTP_DIR                       : /ifremer/cersat/products/gridded/ocean-color/atlantic/EUR-L4-CHL-ATL-v01/%Y/%j/
+FTP_FILES_PREFIX              : %Y%m%d-EUR-L4-CHL-ATL-v01
+
+! FTP_HOST                      : nrt.cmems-du.eu
+! FTP_DIR                       : /Core/IBI_ANALYSIS_FORECAST_PHYS_005_001/dataset-ibi-analysis-forecast-phys-005-001-hourly/%Y/%m/
+! FTP_FILES_PREFIX               : CMEMS_v4r1_IBI_PHY_NRT_PdE_01hav_%Y%m%d
+
+! FTP_HOST                      : nrt.cmems-du.eu
+! FTP_DIR                       : /Core/IBI_ANALYSIS_FORECAST_PHYS_005_001/dataset-ibi-analysis-forecast-phys-005-001-hourly3d/%Y/%m/
+! FTP_FILES_PREFIX               : CMEMS_v4r1_IBI_PHY_NRT_PdE_01hav3D_%Y%m%d
+
+
+OUTPUT_DIR                    : ./output/

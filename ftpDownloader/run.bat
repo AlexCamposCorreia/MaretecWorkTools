@@ -1,0 +1,2 @@
+python ftpDownloader.py
+pause
