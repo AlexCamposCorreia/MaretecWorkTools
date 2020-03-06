@@ -1,13 +1,26 @@
+# -*- coding: utf-8 -*-
+# Author: Alexandre Correia / MARETEC
+# Email: alexandre.c.correia@tecnico.ulisboa.pt
+# Last update: 2002-03-06
 
 input_file = './F3_2018.xyz'
 output_file = './F3_2018_cut.xyz'
+# This script crops a bathymetry file from the EMODnet bathymetry service. Will probably work for 
+# other sources of bathymetry but was not tested.
+# At the moment assumes data comes in the following order: lon, lat, Z or X, Y, Z
+#
 
 lon_min = -9.6055
 lon_max = -8.5892
 lat_min = 37.3720
 lat_max = 38.3821
+# intrinsic python libraries
+import sys
 
 separator = ' '
+# user made code
+sys.path.append('../')
+from mohid_reader import mohid_dat_reader
 
 MOHIDxyzBlock = True
 
