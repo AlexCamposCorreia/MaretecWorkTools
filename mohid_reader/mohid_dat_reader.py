@@ -15,6 +15,10 @@ def process_keywords(key, value):
         value.replace('\\','/')
     if key.find('DIR') != -1 and not value.endswith('/'):
         value = value + '/'
+    if value.lower() == 'true':
+        value = True
+    if value.lower() == 'false':
+        value = False
     return key, value
 
 
