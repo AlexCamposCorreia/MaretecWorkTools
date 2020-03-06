@@ -19,6 +19,21 @@ sys.path.append('../')
 from mohid_reader import mohid_dat_reader
 
 
+def setup_logger():
+    global log
+    log = logging.getLogger(__name__)
+    log.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        fmt='%(asctime)s| %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    # sends logs to stdout
+    ch = logging.StreamHandler(sys.stdout)
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(formatter)
+    log.addHandler(ch)
+
+
 def change_dates(dat):
     with open(dat['MOHID_XML_FILE'], 'r') as f:
         ls = f.readlines()
@@ -44,11 +59,13 @@ def change_dates(dat):
 
 
 def main():
-    dat = mohid_dat_reader.get_mohid_dat('ChangeMOHIDLagrangianDates.dat')
+    print('{:#^100}'.format(' Starting '+os.path.basename(__file__)+' ', fill='#'))
+    setup_logger()
+    dat = mohid_dat_reader.get_mohid_dat(os.path.basename(__file__).replace('.py','.dat'))
+    log.info('Changing date values in ' + dat['MOHID_XML_FILE'])
     change_dates(dat)
+    log.info('Finished sucessfully')
 
 
 if __name__ == '__main__':
-    print('Working...')
     main()
-    print('Finished.')
