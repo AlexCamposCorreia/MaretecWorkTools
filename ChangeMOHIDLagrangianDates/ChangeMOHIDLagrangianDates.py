@@ -45,26 +45,34 @@ def change_dates(dat):
     # rewriting the .xml file
     f = open(dat['MOHID_XML_FILE'], 'w')
     for l in ls:
-        # if line starts with 'parameter' and 'Start' is found, replace the start date
+        # if line starts with '<parameter' and 'Start' is found, replaces the start date
         if l.strip().startswith('<parameter') and l.find('Start') != -1:
+            # writes the line until value is found, then replaces the date
             f.write(
                 l[:l.find('value')+5] + '="' + datetime.strftime(dat['START'],'%Y %m %d %H %M %S')
             )
+            # writes what's after the date value from the original file
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
             f.write(l)
-        # if 'parameter' and 'End' are found in a line, replace the end date
+        # if line starts with '<parameter' and 'End' is found, replaces the end date
         elif l.strip().startswith('<parameter') and l.find('End') != -1:
+            # writes the line until value is found, then replaces the date
             f.write(
                 l[:l.find('value')+5] + '="' + datetime.strftime(dat['END'],'%Y %m %d %H %M %S')
             )
+            # writes what's after the date value from the original file
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
             f.write(l)
+        # if line doesn't start with '<parameter' or 'Start' and 'End' are not found, writes the
+        # line with no change
         else:
             f.write(l)
+    
+    # closing the .xml file
     f.close()
     
     # deletes the backup of the .xml file
