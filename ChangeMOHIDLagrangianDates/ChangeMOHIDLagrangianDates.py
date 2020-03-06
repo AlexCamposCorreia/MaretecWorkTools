@@ -35,30 +35,35 @@ def setup_logger():
 
 
 def change_dates(dat):
+    # making a backup of the .xml the file
     shutil.copy2(dat['MOHID_XML_FILE'], dat['MOHID_XML_FILE'] + '.bak')
     
+    # opening and getting the current .xml file
     with open(dat['MOHID_XML_FILE'], 'r') as f:
         ls = f.readlines()
     
+    # rewriting the .xml file
     f = open(dat['MOHID_XML_FILE'], 'w')
     for l in ls:
         if l.find('parameter') != -1 and l.find('"Start"') != -1:
             f.write(l[:l.find('value')+7]+datetime.strftime(dat['START'],'%Y %m %d %H %M %S'))
+        # if line starts with 'parameter' and 'Start' is found, replace the start date
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
             f.write(l)
         elif l.find('parameter') != -1 and l.find('"End"') != -1:
             f.write(l[:l.find('value')+7]+datetime.strftime(dat['END'],'%Y %m %d %H %M %S'))
+        # if 'parameter' and 'End' are found in a line, replace the end date
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
             f.write(l)
         else:
             f.write(l)
-
     f.close()
     
+    # deletes the backup of the .xml file
     os.remove(dat['MOHID_XML_FILE'] + '.bak')
 
 
