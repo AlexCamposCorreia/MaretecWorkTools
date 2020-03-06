@@ -35,9 +35,11 @@ def setup_logger():
 
 
 def change_dates(dat):
+    shutil.copy2(dat['MOHID_XML_FILE'], dat['MOHID_XML_FILE'] + '.bak')
+    
     with open(dat['MOHID_XML_FILE'], 'r') as f:
         ls = f.readlines()
-
+    
     f = open(dat['MOHID_XML_FILE'], 'w')
     for l in ls:
         if l.find('parameter') != -1 and l.find('"Start"') != -1:
@@ -56,6 +58,8 @@ def change_dates(dat):
             f.write(l)
 
     f.close()
+    
+    os.remove(dat['MOHID_XML_FILE'] + '.bak')
 
 
 def main():
