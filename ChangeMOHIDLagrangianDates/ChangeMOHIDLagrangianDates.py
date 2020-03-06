@@ -45,16 +45,20 @@ def change_dates(dat):
     # rewriting the .xml file
     f = open(dat['MOHID_XML_FILE'], 'w')
     for l in ls:
-        if l.find('parameter') != -1 and l.find('"Start"') != -1:
-            f.write(l[:l.find('value')+7]+datetime.strftime(dat['START'],'%Y %m %d %H %M %S'))
         # if line starts with 'parameter' and 'Start' is found, replace the start date
+        if l.strip().startswith('<parameter') and l.find('Start') != -1:
+            f.write(
+                l[:l.find('value')+5] + '="' + datetime.strftime(dat['START'],'%Y %m %d %H %M %S')
+            )
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
             f.write(l)
-        elif l.find('parameter') != -1 and l.find('"End"') != -1:
-            f.write(l[:l.find('value')+7]+datetime.strftime(dat['END'],'%Y %m %d %H %M %S'))
         # if 'parameter' and 'End' are found in a line, replace the end date
+        elif l.strip().startswith('<parameter') and l.find('End') != -1:
+            f.write(
+                l[:l.find('value')+5] + '="' + datetime.strftime(dat['END'],'%Y %m %d %H %M %S')
+            )
             l = l[l.find('value')+5:]
             l = l[l.find('"')+1:]
             l = l[l.find('"'):]
