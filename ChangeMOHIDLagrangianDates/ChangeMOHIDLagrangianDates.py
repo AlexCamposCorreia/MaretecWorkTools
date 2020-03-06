@@ -1,4 +1,21 @@
+# -*- coding: utf-8 -*-
+# Author: Alexandre Correia / MARETEC
+# Email: alexandre.c.correia@tecnico.ulisboa.pt
+# Last update: 2002-03-06
+
+# This script finds the lines that specify the start and end of a MOHIDLagrangian settings .xml file
+# and replaces the date values by what is specified in a .dat file.
+#
+
+# intrinsic python libraries
+import os
+import sys
+import shutil
+import logging
 from datetime import datetime
+
+# user made code
+sys.path.append('../')
 from mohid_reader import mohid_dat_reader
 
 
