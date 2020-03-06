@@ -81,7 +81,7 @@ def crop_bathymetry(dat):
 
 def main():
     print('Working...')
-    dat = mohid_dat_reader.get_mohid_dat('CutEMODnetBathymetry.dat')
+    dat = mohid_dat_reader.get_mohid_dat('CropEMODnetBathymetry.dat')
     print(dat)
     crop_bathymetry(dat)
     print('Finished.')
